@@ -6,7 +6,7 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/21 06:23:38 by jdufour           #+#    #+#             */
-/*   Updated: 2021/07/22 20:22:40 by jodufour         ###   ########.fr       */
+/*   Updated: 2021/07/22 21:49:13 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,14 +22,14 @@ static size_t	ft_strlen(char const *s)
 	return (p - s);
 }
 
-static uint32_t	get_o_len(uint32_t abs, uint32_t b_len, uint32_t sign)
+static t_uint	get_o_len(t_uint abs, t_uint b_len, t_uint sign)
 {
 	if (abs < b_len)
 		return (sign + 1);
 	return (sign + get_o_len(abs / b_len, b_len, 0) + 1);
 }
 
-static void	init_abs(uint32_t *abs, int n)
+static void	init_abs(t_uint *abs, int n)
 {
 	if (n < 0)
 		*abs = -n;
@@ -39,11 +39,11 @@ static void	init_abs(uint32_t *abs, int n)
 
 char	*ft_itoa_base(int n, char const *base)
 {
-	char		*output;
-	char		*p;
-	uint32_t	abs;
-	uint32_t	b_len;
-	uint32_t	o_len;
+	char	*output;
+	char	*p;
+	t_uint	abs;
+	t_uint	b_len;
+	t_uint	o_len;
 
 	if (ft_wrong_base(base))
 		return (NULL);
