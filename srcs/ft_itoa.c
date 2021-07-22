@@ -6,17 +6,17 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/21 06:23:21 by jdufour           #+#    #+#             */
-/*   Updated: 2021/05/20 12:43:57 by jodufour         ###   ########.fr       */
+/*   Updated: 2021/07/22 20:09:26 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
-#include "libft.h"
+#include "ft_io.h"
 
 char	*ft_itoa(int n)
 {
-	char		*output;
-	uint32_t	len;
+	char	*output;
+	t_uint	len;
 
 	len = ft_intlen(n);
 	output = malloc((len + 1) * sizeof(char));

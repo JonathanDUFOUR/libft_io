@@ -6,11 +6,11 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/24 04:52:27 by jdufour           #+#    #+#             */
-/*   Updated: 2021/04/06 19:48:32 by jodufour         ###   ########.fr       */
+/*   Updated: 2021/07/22 20:16:16 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_io.h"
 
 int	ft_tolower(int c)
 {

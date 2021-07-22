@@ -6,12 +6,20 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/21 06:28:43 by jdufour           #+#    #+#             */
-/*   Updated: 2021/07/21 00:10:43 by jodufour         ###   ########.fr       */
+/*   Updated: 2021/07/22 20:26:40 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_io.h"
-#include "ft_string.h"
+
+static size_t	ft_strlen(char const *s)
+{
+	register char const	*p = s;
+
+	while (*p)
+		++p;
+	return (p - s);
+}
 
 bool	ft_wrong_base(char const *base)
 {

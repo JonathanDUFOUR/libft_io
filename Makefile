@@ -6,7 +6,7 @@
 #    By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/07/20 23:33:41 by jodufour          #+#    #+#              #
-#    Updated: 2021/07/22 15:46:25 by jodufour         ###   ########.fr        #
+#    Updated: 2021/07/22 20:30:47 by jodufour         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,8 +31,6 @@ NAME_SO			=	${NAME}.so
 INCD			=	includes/
 SRCD			=	srcs/
 OBJD			=	objs/
-
-REQ_STRING_SRCD	=	../ft_string/srcs/
 
 ######################################
 #            SOURCE FILES            #
@@ -79,24 +77,13 @@ SRCS			=	\
 					get_next_line_utils.c	\
 					get_next_line.c
 
-REQ_STRING_SRCS	=	\
-					ft_strlen.c	\
-
-REQ_SRCS		=	\
-					${REQ_STRING_SRCS}	\
-
 ######################################
 #            OBJECT FILES            #
 ######################################
 OBJS			=	${SRCS:.c=.o}
 OBJS			:=	${addprefix ${OBJD}, ${OBJS}}
 
-REQ_OBJS		=	${REQ_SRCS:.c=.o}
-REQ_OBJS		:=	${addprefix ${OBJD}, ${REQ_OBJS}}
-
 DEPS			=	${OBJS:.o=.d}
-
-REQ_DEPS		=	${REQ_OBJS:.o=.d}
 
 #######################################
 #                FLAGS                #
@@ -112,13 +99,13 @@ LDFLAGS	=
 #######################################
 #                RULES                #
 #######################################
-${NAME_A}:	${OBJS} ${REQ_OBJS}
+${NAME_A}:	${OBJS}
 	${LINKER} $@ ${LDFLAGS} $^
 
 ${NAME_SO}:	CFLAGS	+= -fPIC
 ${NAME_SO}:	LDFLAGS += -shared
 ${NAME_SO}:	LINKER = gcc -o
-${NAME_SO}:	${OBJS} ${REQ_OBJS}
+${NAME_SO}:	${OBJS}
 	${LINKER} $@ ${LDFLAGS} $^
 
 all:	${NAME_A} ${NAME_SO}
@@ -126,12 +113,6 @@ all:	${NAME_A} ${NAME_SO}
 -include ${DEPS}
 
 ${OBJD}%.o:	${SRCD}%.c
-	@${MAKEDIR} ${@D}
-	${CC} $@ ${CFLAGS} $<
-
--include ${REQ_DEPS}
-
-${OBJD}%.o:	${REQ_STRING_SRCD}%.c
 	@${MAKEDIR} ${@D}
 	${CC} $@ ${CFLAGS} $<
 
@@ -146,4 +127,22 @@ re:	fclean all
 norm:
 	@norminette ${SRCD} | grep 'Error' ; true
 
-.PHONY: all clean fclean re norm
+coffee:
+	@echo '                                              '
+	@echo '                   "   "                      '
+	@echo '                  " " " "                     '
+	@echo '                 " " " "                      '
+	@echo '         _.-==="""""""""===-._                '
+	@echo '        |=___    ~ ~ ~    ___=|=,.            '
+	@echo '        |    """======="""    |  \\           '
+	@echo '        |                     |   ||          '
+	@echo '        |                     |   ||          '
+	@echo '        |                     |   ||          '
+	@echo '        |                     |   ||          '
+	@echo '        |                     |  //           '
+	@echo '         \                   /==""            '
+	@echo '          \                 /                 '
+	@echo '           ""--._______.--""                  '
+	@echo '                                              '
+
+.PHONY: all clean fclean re norm coffee

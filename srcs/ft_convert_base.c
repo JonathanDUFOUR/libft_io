@@ -6,12 +6,11 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/21 06:21:58 by jdufour           #+#    #+#             */
-/*   Updated: 2021/07/20 23:32:26 by jodufour         ###   ########.fr       */
+/*   Updated: 2021/07/22 20:02:46 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include "libft.h"
+#include "ft_io.h"
 
 char	*ft_convert_base(char const *n,
 	char const *base_from, char const *base_to)

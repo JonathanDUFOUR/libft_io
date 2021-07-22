@@ -6,11 +6,11 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/24 04:07:55 by jdufour           #+#    #+#             */
-/*   Updated: 2021/05/25 22:39:54 by jodufour         ###   ########.fr       */
+/*   Updated: 2021/07/22 20:04:42 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <stdbool.h>
 
 bool	ft_isprint(int c)
 {

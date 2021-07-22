@@ -6,11 +6,11 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/24 01:57:04 by jdufour           #+#    #+#             */
-/*   Updated: 2021/05/25 22:39:07 by jodufour         ###   ########.fr       */
+/*   Updated: 2021/07/22 20:03:16 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_io.h"
 
 bool	ft_isalpha(int c)
 {

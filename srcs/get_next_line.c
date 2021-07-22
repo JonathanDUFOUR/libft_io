@@ -6,7 +6,7 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/20 23:55:08 by jodufour          #+#    #+#             */
-/*   Updated: 2021/07/22 01:59:01 by jodufour         ###   ########.fr       */
+/*   Updated: 2021/07/22 20:28:14 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int		get_fd_line(int const fd, char **line, char **rest);
 
 static t_fd_lst	*get_fd_lst(void)
 {
-	static t_fd_lst	lst = {0, NULL, NULL};
+	static t_fd_lst	lst = {NULL, NULL, 0};
 
 	return (&lst);
 }
@@ -71,7 +71,7 @@ void	gnl_clear(void)
 
 int	get_next_line(int fd, char **line)
 {
-	t_fd_lst *const	lst = get_lst();
+	t_fd_lst *const	lst = get_fd_lst();
 	t_fd			*curr;
 	int				ret;
 

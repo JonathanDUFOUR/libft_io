@@ -6,13 +6,21 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/10 01:19:22 by jodufour          #+#    #+#             */
-/*   Updated: 2021/07/21 03:13:25 by jodufour         ###   ########.fr       */
+/*   Updated: 2021/07/22 20:17:43 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "ft_io.h"
-#include "ft_string.h"
+
+static size_t	ft_strlen(char const *s)
+{
+	register char const	*p = s;
+
+	while (*p)
+		++p;
+	return (p - s);
+}
 
 static size_t	get_o_len(t_uint abs, t_uint b_len)
 {

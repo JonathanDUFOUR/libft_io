@@ -6,11 +6,11 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/21 06:22:54 by jdufour           #+#    #+#             */
-/*   Updated: 2021/05/25 22:39:19 by jodufour         ###   ########.fr       */
+/*   Updated: 2021/07/22 20:03:57 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <stdbool.h>
 
 bool	ft_isdigit(int c)
 {

@@ -6,13 +6,20 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/21 06:24:56 by jdufour           #+#    #+#             */
-/*   Updated: 2021/07/21 04:30:26 by jodufour         ###   ########.fr       */
+/*   Updated: 2021/07/22 20:18:11 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
 #include "ft_io.h"
-#include "ft_string.h"
+
+static size_t	ft_strlen(char const *s)
+{
+	register char const	*p = s;
+
+	while (*p)
+		++p;
+	return (p - s);
+}
 
 int	ft_putuint_base_fd(t_uint n, const char *base, int fd)
 {

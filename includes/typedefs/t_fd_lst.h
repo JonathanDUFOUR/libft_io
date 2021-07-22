@@ -1,18 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_islower.c                                       :+:      :+:    :+:   */
+/*   t_fd_lst.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/24 02:03:18 by jdufour           #+#    #+#             */
-/*   Updated: 2021/07/22 20:04:28 by jodufour         ###   ########.fr       */
+/*   Created: 2021/07/06 12:48:32 by jodufour          #+#    #+#             */
+/*   Updated: 2021/07/22 01:47:28 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdbool.h>
+#ifndef T_FD_LST_H
+# define T_FD_LST_H
 
-bool	ft_islower(int c)
+# include <string.h>
+# include "t_fd.h"
+
+typedef struct s_fd_lst	t_fd_lst;
+
+struct s_fd_lst
 {
-	return (c >= 'a' && c <= 'z');
-}
+	t_fd	*head;
+	t_fd	*tail;
+	size_t	size;
+};
+
+#endif

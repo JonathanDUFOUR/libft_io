@@ -6,12 +6,21 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/26 02:04:40 by jdufour           #+#    #+#             */
-/*   Updated: 2021/07/20 23:25:18 by jodufour         ###   ########.fr       */
+/*   Updated: 2021/07/22 20:12:36 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
-#include "ft_string.h"
+#include <string.h>
+
+static size_t	ft_strlen(char const *s)
+{
+	register char const	*p = s;
+
+	while (*p)
+		++p;
+	return (s - p);
+}
 
 ssize_t	ft_putendl_fd(char const *s, int fd)
 {

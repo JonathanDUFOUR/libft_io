@@ -6,12 +6,11 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/21 06:21:42 by jdufour           #+#    #+#             */
-/*   Updated: 2021/07/20 20:35:37 by jodufour         ###   ########.fr       */
+/*   Updated: 2021/07/22 20:18:45 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <fcntl.h>
-#include <unistd.h>
 #include "ft_io.h"
 
 void	ft_cat(char **f)

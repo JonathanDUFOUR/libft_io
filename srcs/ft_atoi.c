@@ -6,11 +6,11 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/21 06:21:03 by jdufour           #+#    #+#             */
-/*   Updated: 2021/05/25 22:17:44 by jodufour         ###   ########.fr       */
+/*   Updated: 2021/07/22 20:02:14 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_io.h"
 
 int	ft_atoi(char const *s)
 {
