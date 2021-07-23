@@ -6,7 +6,7 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/20 19:02:43 by jodufour          #+#    #+#             */
-/*   Updated: 2021/07/22 01:55:54 by jodufour         ###   ########.fr       */
+/*   Updated: 2021/07/23 01:07:39 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include <stdint.h>
 # include <unistd.h>
 # include <wchar.h>
+# include "ft_printf.h"
 # include "get_next_line.h"
 # include "typedefs/t_int.h"
 
@@ -32,6 +33,8 @@ int		ft_putbytes_fd(void *addr, size_t size, int fd);
 int		ft_putchar_fd(wchar_t c, int fd);
 int		ft_putint_fd(int n, int fd);
 int		ft_putlint_fd(t_lint n, int fd);
+int		ft_putllint_fd(t_llint n, int fd);
+int		ft_putlluint_fd(t_lluint n, int fd);
 int		ft_putluint_fd(t_luint n, int fd);
 int		ft_putuint_base_fd(t_uint n, const char *base, int fd);
 int		ft_putuint_fd(t_uint n, int fd);
