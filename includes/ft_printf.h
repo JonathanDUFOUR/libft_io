@@ -6,13 +6,13 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/28 01:32:07 by jodufour          #+#    #+#             */
-/*   Updated: 2021/07/23 01:16:20 by jodufour         ###   ########.fr       */
+/*   Updated: 2021/07/30 03:10:58 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
 
-int			ft_printf(char const *format, ...);
+int	ft_printf(char const *format, ...);
 
 #endif
