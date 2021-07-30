@@ -6,7 +6,7 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/26 02:04:40 by jdufour           #+#    #+#             */
-/*   Updated: 2021/07/22 20:12:36 by jodufour         ###   ########.fr       */
+/*   Updated: 2021/07/30 22:25:46 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static size_t	ft_strlen(char const *s)
 
 	while (*p)
 		++p;
-	return (s - p);
+	return (p - s);
 }
 
 ssize_t	ft_putendl_fd(char const *s, int fd)
