@@ -6,7 +6,7 @@
 #    By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/07/20 23:33:41 by jodufour          #+#    #+#              #
-#    Updated: 2021/07/30 03:09:56 by jodufour         ###   ########.fr        #
+#    Updated: 2021/07/30 03:33:09 by jodufour         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -153,21 +153,21 @@ SRC			=	\
 ######################################
 #            OBJECT FILES            #
 ######################################
-OBJ		=	${SRC:.c=.o}
-OBJ		:=	${addprefix ${OBJ_DIR}, ${OBJ}}
+OBJ			=	${SRC:.c=.o}
+OBJ			:=	${addprefix ${OBJ_DIR}, ${OBJ}}
 
-DEP		=	${OBJS:.o=.d}
+DEP			=	${OBJS:.o=.d}
 
 #######################################
 #                FLAGS                #
 #######################################
-CFLAGS	=	-Wall -Wextra -MMD -I${INC_DIR} -I${PRIV_DIR}
+CFLAGS		=	-Wall -Wextra -MMD -I${INC_DIR} -I${PRIV_DIR}
 
 ifeq (DEBUG, true)
 	CFLAGS	+=	-g
 endif
 
-LDFLAGS	=	
+LDFLAGS		=	
 
 #######################################
 #                RULES                #
