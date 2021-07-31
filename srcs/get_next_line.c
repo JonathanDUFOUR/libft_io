@@ -6,7 +6,7 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/20 23:55:08 by jodufour          #+#    #+#             */
-/*   Updated: 2021/07/22 20:28:14 by jodufour         ###   ########.fr       */
+/*   Updated: 2021/07/31 23:08:18 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,7 @@ int	get_next_line(int fd, char **line)
 	t_fd			*curr;
 	int				ret;
 
+	*line = NULL;
 	curr = lst->head;
 	while (curr && curr->fd != fd)
 		curr = curr->next;
