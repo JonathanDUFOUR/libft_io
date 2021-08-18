@@ -6,13 +6,13 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/03 02:44:07 by jodufour          #+#    #+#             */
-/*   Updated: 2021/07/23 01:21:32 by jodufour         ###   ########.fr       */
+/*   Updated: 2021/08/18 02:37:56 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 #include "ft_ptf.h"
-#include "enums/e_ret.h"
+#include "enum/e_ret.h"
 
 int	padded_putaddr(t_luint n, t_uint len, t_ctx *ctx)
 {

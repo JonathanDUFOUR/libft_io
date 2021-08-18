@@ -6,13 +6,13 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/18 06:19:49 by jodufour          #+#    #+#             */
-/*   Updated: 2021/07/23 01:51:29 by jodufour         ###   ########.fr       */
+/*   Updated: 2021/08/18 02:37:56 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_io.h"
 #include "ft_ptf.h"
-#include "enums/e_ret.h"
+#include "enum/e_ret.h"
 
 static t_llint	get_right_type(t_ctx *ctx, va_list va)
 {

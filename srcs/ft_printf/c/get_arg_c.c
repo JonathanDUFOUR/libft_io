@@ -6,14 +6,14 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/09 04:29:36 by jodufour          #+#    #+#             */
-/*   Updated: 2021/07/23 01:50:02 by jodufour         ###   ########.fr       */
+/*   Updated: 2021/08/18 02:37:56 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 #include "ft_io.h"
 #include "ft_ptf.h"
-#include "enums/e_ret.h"
+#include "enum/e_ret.h"
 
 static int	get_char(t_ctx *ctx, va_list va)
 {

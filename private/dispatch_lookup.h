@@ -6,14 +6,14 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/18 04:09:49 by jodufour          #+#    #+#             */
-/*   Updated: 2021/07/22 23:08:49 by jodufour         ###   ########.fr       */
+/*   Updated: 2021/08/18 02:37:41 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef DISPATCH_LOOKUP_H
 # define DISPATCH_LOOKUP_H
 
-# include "typedefs/t_cvrt.h"
+# include "type/t_cvrt.h"
 
 int	get_arg_c(t_ctx *ctx, va_list va);
 int	get_arg_s(t_ctx *ctx, va_list va);

@@ -6,13 +6,13 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/05 16:01:46 by jodufour          #+#    #+#             */
-/*   Updated: 2021/07/23 01:22:17 by jodufour         ###   ########.fr       */
+/*   Updated: 2021/08/18 02:37:56 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 #include "ft_ptf.h"
-#include "enums/e_ret.h"
+#include "enum/e_ret.h"
 
 int	padded_putnstr(char *s, t_ctx *ctx)
 {

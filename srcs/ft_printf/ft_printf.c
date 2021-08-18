@@ -6,12 +6,12 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/28 01:58:43 by jodufour          #+#    #+#             */
-/*   Updated: 2021/07/23 02:25:17 by jodufour         ###   ########.fr       */
+/*   Updated: 2021/08/18 02:37:56 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ptf.h"
-#include "enums/e_ret.h"
+#include "enum/e_ret.h"
 
 static void	init_ctx(t_ctx *ctx)
 {

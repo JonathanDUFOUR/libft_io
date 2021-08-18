@@ -6,12 +6,12 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/03 01:47:48 by jodufour          #+#    #+#             */
-/*   Updated: 2021/07/22 23:49:56 by jodufour         ###   ########.fr       */
+/*   Updated: 2021/08/18 02:37:41 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
-#include "typedefs/t_int.h"
+#include "type/t_int.h"
 
 void	putlluint_hexa(t_lluint n, char c)
 {

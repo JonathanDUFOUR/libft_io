@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #include "ft_ptf.h"
-#include "enums/e_ret.h"
+#include "enum/e_ret.h"
 
 static t_lluint	get_right_type(t_ctx *ctx, va_list va)
 {

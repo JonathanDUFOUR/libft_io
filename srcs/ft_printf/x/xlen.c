@@ -6,11 +6,11 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/16 06:29:14 by jodufour          #+#    #+#             */
-/*   Updated: 2021/07/23 01:24:23 by jodufour         ###   ########.fr       */
+/*   Updated: 2021/08/18 02:37:41 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "typedefs/t_int.h"
+#include "type/t_int.h"
 
 t_uint	xlen(t_lluint n)
 {

@@ -6,11 +6,11 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/14 12:06:13 by jodufour          #+#    #+#             */
-/*   Updated: 2021/07/21 03:09:46 by jodufour         ###   ########.fr       */
+/*   Updated: 2021/08/18 02:37:41 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "typedefs/t_int.h"
+#include "type/t_int.h"
 
 t_uint	ft_uintlen(t_uint n)
 {

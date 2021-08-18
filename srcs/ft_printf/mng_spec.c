@@ -13,7 +13,7 @@
 #include <stdlib.h>
 #include "ft_ptf.h"
 #include "dispatch_lookup.h"
-#include "enums/e_ret.h"
+#include "enum/e_ret.h"
 
 char const	*mng_spec(char const *format, t_ctx *ctx, va_list va)
 {

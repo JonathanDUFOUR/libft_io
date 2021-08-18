@@ -6,12 +6,12 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/06 17:37:26 by jonathan          #+#    #+#             */
-/*   Updated: 2021/07/20 23:26:23 by jodufour         ###   ########.fr       */
+/*   Updated: 2021/08/18 02:37:41 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
-#include "typedefs/t_int.h"
+#include "type/t_int.h"
 
 int	ft_putlint_fd(t_lint n, int fd)
 {

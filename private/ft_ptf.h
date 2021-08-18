@@ -6,7 +6,7 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/23 01:09:33 by jodufour          #+#    #+#             */
-/*   Updated: 2021/07/23 02:20:13 by jodufour         ###   ########.fr       */
+/*   Updated: 2021/08/18 02:37:41 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 # include <stdint.h>
 # include <string.h>
 # include <wchar.h>
-# include "typedefs/t_int.h"
+# include "type/t_int.h"
 
 /*
 **	(1 << 0) -> '-'
