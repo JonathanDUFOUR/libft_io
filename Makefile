@@ -6,7 +6,7 @@
 #    By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/07/20 23:33:41 by jodufour          #+#    #+#              #
-#    Updated: 2021/07/30 03:33:09 by jodufour         ###   ########.fr        #
+#    Updated: 2021/08/20 19:07:15 by jodufour         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -163,7 +163,7 @@ DEP			=	${OBJS:.o=.d}
 #######################################
 CFLAGS		=	-Wall -Wextra -MMD -I${INC_DIR} -I${PRIV_DIR}
 
-ifeq (DEBUG, true)
+ifeq (${DEBUG}, true)
 	CFLAGS	+=	-g
 endif
 
