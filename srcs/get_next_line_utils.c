@@ -6,7 +6,7 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/20 23:55:24 by jodufour          #+#    #+#             */
-/*   Updated: 2021/07/22 01:52:38 by jodufour         ###   ########.fr       */
+/*   Updated: 2021/08/20 19:18:03 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ static int	gnl_read(int const fd, char **rest, char **tmp, int *len)
 	char	buff[GNL_BUFF_SIZE + 1];
 	int		rd;
 
+	rd = 0;
 	while (*len == indexof(*rest, 0))
 	{
 		rd = read(fd, buff, GNL_BUFF_SIZE);
