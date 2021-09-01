@@ -6,7 +6,7 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/09 05:31:42 by jodufour          #+#    #+#             */
-/*   Updated: 2021/07/21 03:13:56 by jodufour         ###   ########.fr       */
+/*   Updated: 2021/09/01 19:12:02 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ char	*ft_utoa(t_uint n)
 	if (!output)
 		return (NULL);
 	output[len] = 0;
-	while (len && n)
+	while (len)
 	{
 		output[--len] = (n % 10) + '0';
 		n /= 10;
