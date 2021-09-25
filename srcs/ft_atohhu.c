@@ -1,20 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoul.c                                         :+:      :+:    :+:   */
+/*   ft_atohhu.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/07 22:04:44 by jodufour          #+#    #+#             */
-/*   Updated: 2021/07/21 00:07:53 by jodufour         ###   ########.fr       */
+/*   Created: 2021/09/25 22:56:30 by jodufour          #+#    #+#             */
+/*   Updated: 2021/09/25 23:32:37 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_io.h"
 
-t_luint	ft_atoul(char const *s)
+t_hhuint	ft_atohhu(char const *s)
 {
-	t_luint	res;
+	t_hhuint	res;
 
 	res = 0;
 	while (ft_isspace(*s))

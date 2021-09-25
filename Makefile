@@ -6,7 +6,7 @@
 #    By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/07/20 23:33:41 by jodufour          #+#    #+#              #
-#    Updated: 2021/08/29 00:06:39 by jodufour         ###   ########.fr        #
+#    Updated: 2021/09/25 23:29:25 by jodufour         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -107,15 +107,25 @@ SRC			=	\
 				${addprefix ${PTF_SRC_DIR},	\
 					${PTF_SRC}				\
 				}							\
+				ft_atohhi.c					\
+				ft_atohhu.c					\
+				ft_atohi.c					\
+				ft_atohu.c					\
 				ft_atoi_base.c				\
 				ft_atoi.c					\
-				ft_atol.c					\
+				ft_atoli.c					\
+				ft_atolli.c					\
+				ft_atollu.c					\
+				ft_atolu.c					\
 				ft_atou.c					\
-				ft_atoul.c					\
 				ft_cat.c					\
 				ft_convert_base.c			\
 				ft_ctoa.c					\
 				ft_file_size.c				\
+				ft_hhintlen.c				\
+				ft_hhuintlen.c				\
+				ft_hintlen.c				\
+				ft_huintlen.c				\
 				ft_indexof.c				\
 				ft_intlen.c					\
 				ft_isalnum.c				\
@@ -128,6 +138,10 @@ SRC			=	\
 				ft_isupper.c				\
 				ft_itoa_base.c				\
 				ft_itoa.c					\
+				ft_lintlen.c				\
+				ft_llintlen.c				\
+				ft_lluintlen.c				\
+				ft_luintlen.c				\
 				ft_lutoa_base.c				\
 				ft_putbyte_fd.c				\
 				ft_putbytes_fd.c			\
@@ -165,7 +179,7 @@ CFLAGS		=	-Wall -Wextra -Werror
 CFLAGS		+=	-MMD -MP
 CFLAGS		+=	-I${INC_DIR} -I${PRV_DIR}
 
-ifeq (${DEBUG}, true)
+ifeq (${DEBUG}, 1)
 	CFLAGS	+=	-g
 endif
 

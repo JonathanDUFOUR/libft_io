@@ -1,20 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atol.c                                          :+:      :+:    :+:   */
+/*   ft_atohhi.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/04/03 11:34:54 by jdufour           #+#    #+#             */
-/*   Updated: 2021/07/21 00:06:31 by jodufour         ###   ########.fr       */
+/*   Created: 2021/09/25 22:55:14 by jodufour          #+#    #+#             */
+/*   Updated: 2021/09/25 22:55:40 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_io.h"
 
-t_lint	ft_atol(char const *s)
+t_hhint	ft_atohhi(char const *s)
 {
-	t_lint	res;
+	t_hhint	res;
 	int		sign;
 
 	res = 0;

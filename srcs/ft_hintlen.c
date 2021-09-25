@@ -1,27 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atou.c                                          :+:      :+:    :+:   */
+/*   ft_hintlen.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/07 21:59:08 by jodufour          #+#    #+#             */
-/*   Updated: 2021/09/25 22:50:11 by jodufour         ###   ########.fr       */
+/*   Created: 2021/09/25 23:17:14 by jodufour          #+#    #+#             */
+/*   Updated: 2021/09/25 23:17:27 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_io.h"
+#include "type/t_int.h"
 
-t_uint	ft_atou(char const *s)
+t_uint	ft_hintlen(t_hint n)
 {
-	t_uint	res;
+	t_uint	len;
 
-	res = 0;
-	while (ft_isspace(*s))
-		++s;
-	if (*s == '+')
-		++s;
-	while (ft_isdigit(*s))
-		res = res * 10 + *s++ - '0';
-	return (res);
+	len = 1 + (n < 0);
+	while (n / 10)
+	{
+		++len;
+		n /= 10;
+	}
+	return (len);
 }
