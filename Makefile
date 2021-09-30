@@ -6,7 +6,7 @@
 #    By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/07/20 23:33:41 by jodufour          #+#    #+#              #
-#    Updated: 2021/09/25 23:29:25 by jodufour         ###   ########.fr        #
+#    Updated: 2021/09/30 19:55:55 by jodufour         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -213,25 +213,7 @@ fclean:
 
 re:	fclean all
 
-norm:
-	@norminette ${SRC_DIR} ${INC_DIR} ${PRV_DIR} | grep 'Error' ; true
-
-coffee:
-	@echo '                                              '
-	@echo '                   "   "                      '
-	@echo '                  " " " "                     '
-	@echo '                 " " " "                      '
-	@echo '         _.-==="""""""""===-._                '
-	@echo '        |=___    ~ ~ ~    ___=|=,.            '
-	@echo '        |    """======="""    |  \\           '
-	@echo '        |                     |   ||          '
-	@echo '        |                     |   ||          '
-	@echo '        |                     |   ||          '
-	@echo '        |                     |   ||          '
-	@echo '        |                     |  //           '
-	@echo '         \                   /==""            '
-	@echo '          \                 /                 '
-	@echo '           ""--._______.--""                  '
-	@echo '                                              '
+-include /home/jodufour/Templates/mk_files/coffee.mk
+-include /home/jodufour/Templates/mk_files/norm.mk
 
 .PHONY: all clean fclean re norm coffee
