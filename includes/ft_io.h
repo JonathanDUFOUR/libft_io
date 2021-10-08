@@ -6,7 +6,7 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/20 19:02:43 by jodufour          #+#    #+#             */
-/*   Updated: 2021/09/25 23:09:58 by jodufour         ###   ########.fr       */
+/*   Updated: 2021/10/09 01:00:16 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@
 
 int			ft_atoi_base(char const *s, char const *b);
 int			ft_atoi(char const *s) __attribute__((nonnull));
+int			ft_fddel(int *const fd) __attribute__((nonnull));
 int			ft_putbyte_fd(uint8_t byte, int fd);
 int			ft_putbytes_fd(void *addr, size_t size, int fd);
 int			ft_putchar_fd(wchar_t c, int fd);

@@ -6,7 +6,7 @@
 #    By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/07/20 23:33:41 by jodufour          #+#    #+#              #
-#    Updated: 2021/09/30 19:55:55 by jodufour         ###   ########.fr        #
+#    Updated: 2021/10/09 01:01:05 by jodufour         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -121,6 +121,7 @@ SRC			=	\
 				ft_cat.c					\
 				ft_convert_base.c			\
 				ft_ctoa.c					\
+				ft_fddel.c					\
 				ft_file_size.c				\
 				ft_hhintlen.c				\
 				ft_hhuintlen.c				\
