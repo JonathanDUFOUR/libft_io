@@ -6,21 +6,21 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/25 23:25:48 by jodufour          #+#    #+#             */
-/*   Updated: 2021/09/25 23:26:11 by jodufour         ###   ########.fr       */
+/*   Updated: 2021/11/14 23:48:35 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "type/t_int.h"
 
-t_uint	ft_lintlen(t_lint n)
+t_uint	ft_lintlen(t_lint nb)
 {
 	t_uint	len;
 
-	len = 1 + (n < 0);
-	while (n / 10)
+	len = 1 + (nb < 0);
+	while (nb / 10)
 	{
 		++len;
-		n /= 10;
+		nb /= 10;
 	}
 	return (len);
 }

@@ -6,21 +6,21 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/14 12:06:13 by jodufour          #+#    #+#             */
-/*   Updated: 2021/09/25 23:34:55 by jodufour         ###   ########.fr       */
+/*   Updated: 2021/11/15 01:26:04 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "type/t_int.h"
 
-t_uint	ft_uintlen(t_uint n)
+t_uint	ft_uintlen(t_uint nb)
 {
 	t_uint	len;
 
 	len = 1;
-	while (n / 10)
+	while (nb / 10)
 	{
 		++len;
-		n /= 10;
+		nb /= 10;
 	}
 	return (len);
 }

@@ -5,22 +5,22 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/25 23:28:40 by jodufour          #+#    #+#             */
-/*   Updated: 2021/09/25 23:28:57 by jodufour         ###   ########.fr       */
+/*   Created: 2021/06/02 00:30:54 by jodufour          #+#    #+#             */
+/*   Updated: 2021/11/14 22:59:32 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "type/t_int.h"
 
-t_uint	ft_llintlen(t_llint n)
+t_uint	ft_llintlen(t_llint nb)
 {
 	t_uint	len;
 
-	len = 1 + (n < 0);
-	while (n / 10)
+	len = 1 + (nb < 0);
+	while (nb / 10)
 	{
 		++len;
-		n /= 10;
+		nb /= 10;
 	}
 	return (len);
 }

@@ -6,13 +6,13 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/24 02:04:19 by jdufour           #+#    #+#             */
-/*   Updated: 2021/07/22 20:05:40 by jodufour         ###   ########.fr       */
+/*   Updated: 2021/11/14 23:37:07 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdbool.h>
 
-bool	ft_isupper(int c)
+bool	ft_isupper(int const c)
 {
 	return (c >= 'A' && c <= 'Z');
 }

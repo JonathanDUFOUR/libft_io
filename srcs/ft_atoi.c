@@ -6,25 +6,25 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/21 06:21:03 by jdufour           #+#    #+#             */
-/*   Updated: 2021/07/22 20:02:14 by jodufour         ###   ########.fr       */
+/*   Updated: 2021/11/14 23:29:44 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_io.h"
 
-int	ft_atoi(char const *s)
+int	ft_atoi(char const *str)
 {
-	int	res;
+	int	output;
 	int	sign;
 
-	res = 0;
+	output = 0;
 	sign = 1;
-	while (ft_isspace(*s))
-		++s;
-	if (*s == '-' || *s == '+')
-		if (*s++ == '-')
+	while (ft_isspace(*str))
+		++str;
+	if (*str == '-' || *str == '+')
+		if (*str++ == '-')
 			sign ^= ~1u;
-	while (ft_isdigit(*s))
-		res = res * 10 + *s++ - '0';
-	return (res * sign);
+	while (ft_isdigit(*str))
+		output = output * 10 + *str++ - '0';
+	return (output * sign);
 }

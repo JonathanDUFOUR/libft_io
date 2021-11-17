@@ -6,7 +6,7 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/20 23:55:08 by jodufour          #+#    #+#             */
-/*   Updated: 2021/08/18 02:37:41 by jodufour         ###   ########.fr       */
+/*   Updated: 2021/11/15 01:28:54 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 #include "get_next_line.h"
 #include "type/t_fd_lst.h"
 
-int		indexof(char const *s, char const c);
-char	*gnl_concat(char const *s1, char const *s2, int n);
+int		indexof(char const *str, char const c);
+char	*gnl_concat(char const *s0, char const *s1, int n);
 int		get_fd_line(int const fd, char **line, char **rest);
 
 static t_fd_lst	*get_fd_lst(void)

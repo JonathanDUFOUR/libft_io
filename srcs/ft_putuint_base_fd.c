@@ -6,32 +6,32 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/21 06:24:56 by jdufour           #+#    #+#             */
-/*   Updated: 2021/07/22 20:18:11 by jodufour         ###   ########.fr       */
+/*   Updated: 2021/11/16 14:58:24 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_io.h"
 
-static size_t	ft_strlen(char const *s)
+static size_t	ft_strlen(char const *str)
 {
-	register char const	*p = s;
+	register char const	*ptr = str;
 
-	while (*p)
-		++p;
-	return (p - s);
+	while (*ptr)
+		++ptr;
+	return (ptr - str);
 }
 
-int	ft_putuint_base_fd(t_uint n, const char *base, int fd)
+int	ft_putuint_base_fd(t_uint const nb, const char *base, int const fd)
 {
-	size_t	b_len;
-	char	d;
+	t_uint	base_len;
+	char	digit;
 
-	if (ft_wrong_base(base) || write(fd, "", 0) == -1)
+	if (!ft_isvalid(base) || write(fd, "", 0) == -1)
 		return (-1);
-	b_len = ft_strlen(base);
-	d = base[n % b_len];
-	if (n >= b_len)
-		return (ft_putuint_base_fd(n / b_len, base, fd)
-			+ (int)write(fd, &d, 1));
-	return ((int)write(fd, &d, 1));
+	base_len = (t_uint)ft_strlen(base);
+	digit = base[nb % base_len];
+	if (nb / base_len)
+		return (ft_putuint_base_fd(nb / base_len, base, fd)
+			+ (int)write(fd, &digit, 1));
+	return ((int)write(fd, &digit, 1));
 }

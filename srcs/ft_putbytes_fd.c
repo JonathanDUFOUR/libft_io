@@ -6,14 +6,14 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/07 18:12:50 by jodufour          #+#    #+#             */
-/*   Updated: 2021/07/20 22:39:43 by jodufour         ###   ########.fr       */
+/*   Updated: 2021/11/15 00:23:14 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 #include "ft_io.h"
 
-int	ft_putbytes_fd(void *addr, size_t size, int fd)
+int	ft_putbytes_fd(void *addr, size_t size, int const fd)
 {
 	int	ret;
 

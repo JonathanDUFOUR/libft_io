@@ -6,28 +6,27 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/17 13:10:40 by jodufour          #+#    #+#             */
-/*   Updated: 2021/08/18 02:37:56 by jodufour         ###   ########.fr       */
+/*   Updated: 2021/11/10 16:51:30 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include <unistd.h>
-#include "type/t_int.h"
 #include "enum/e_ret.h"
 
-int	padding(int c, t_uint padlen)
+int	padding(int const c, int padlen)
 {
 	char	*padding;
-	char	*p;
+	char	*ptr;
 
 	padding = malloc((padlen + 1) * sizeof(char));
 	if (!padding)
-		return (MALLOC_ERRNO);
-	p = padding;
+		return (MALLOC_ERR);
+	ptr = padding;
 	while (padlen--)
-		*p++ = c;
-	*p = 0;
-	write(1, padding, p - padding);
+		*ptr++ = c;
+	*ptr = 0;
+	write(1, padding, ptr - padding);
 	free(padding);
 	return (SUCCESS);
 }

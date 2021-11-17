@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/02 14:44:05 by jodufour          #+#    #+#             */
-/*   Updated: 2021/07/02 14:59:21 by jodufour         ###   ########.fr       */
+/*   Created: 2021/11/10 15:13:39 by jodufour          #+#    #+#             */
+/*   Updated: 2021/11/10 15:14:00 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 
 enum	e_ret
 {
-	WRITE_ERRNO = -2,
-	MALLOC_ERRNO = -1,
-	SUCCESS
+	SUCCESS,
+	WRITE_ERR,
+	MALLOC_ERR
 };
 
 #endif

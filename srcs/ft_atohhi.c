@@ -6,25 +6,25 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/25 22:55:14 by jodufour          #+#    #+#             */
-/*   Updated: 2021/09/25 22:55:40 by jodufour         ###   ########.fr       */
+/*   Updated: 2021/11/14 23:27:00 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_io.h"
 
-t_hhint	ft_atohhi(char const *s)
+t_hhint	ft_atohhi(char const *str)
 {
-	t_hhint	res;
+	t_hhint	output;
 	int		sign;
 
-	res = 0;
+	output = 0;
 	sign = 1;
-	while (ft_isspace(*s))
-		++s;
-	if (*s == '-' || *s == '+')
-		if (*s++ == '-')
+	while (ft_isspace(*str))
+		++str;
+	if (*str == '-' || *str == '+')
+		if (*str++ == '-')
 			sign ^= ~1u;
-	while (ft_isdigit(*s))
-		res = res * 10 + *s++ - '0';
-	return (res * sign);
+	while (ft_isdigit(*str))
+		output = output * 10 + *str++ - '0';
+	return (output * sign);
 }

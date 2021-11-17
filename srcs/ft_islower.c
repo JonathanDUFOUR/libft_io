@@ -6,13 +6,13 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/24 02:03:18 by jdufour           #+#    #+#             */
-/*   Updated: 2021/07/22 20:04:28 by jodufour         ###   ########.fr       */
+/*   Updated: 2021/11/14 23:22:53 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdbool.h>
 
-bool	ft_islower(int c)
+bool	ft_islower(int const c)
 {
 	return (c >= 'a' && c <= 'z');
 }

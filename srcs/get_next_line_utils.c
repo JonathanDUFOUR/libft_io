@@ -6,7 +6,7 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/20 23:55:24 by jodufour          #+#    #+#             */
-/*   Updated: 2021/08/20 19:18:03 by jodufour         ###   ########.fr       */
+/*   Updated: 2021/11/15 01:28:16 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,34 +14,34 @@
 #include <unistd.h>
 #include "get_next_line.h"
 
-int	indexof(char const *s, char const c)
+int	indexof(char const *str, char const c)
 {
 	int	idx;
 
 	idx = 0;
-	while (s && s[idx] && s[idx] != c)
+	while (str && str[idx] && str[idx] != c)
 		++idx;
 	return (idx);
 }
 
-char	*gnl_concat(char const *s1, char const *s2, int n)
+char	*gnl_concat(char const *s0, char const *s1, int const n)
 {
 	int		i;
 	int		len;
 	char	*res;
 
 	i = 0;
-	len = indexof(s1, 0) + indexof(s2, 0);
+	len = indexof(s0, 0) + indexof(s1, 0);
 	if (len > n && n >= 0)
 		len = n;
 	res = malloc((len + 1) * sizeof(char));
 	if (!res)
 		return (NULL);
 	res[len] = 0;
+	while (s0 && *s0 && i < len)
+		res[i++] = *s0++;
 	while (s1 && *s1 && i < len)
 		res[i++] = *s1++;
-	while (s2 && *s2 && i < len)
-		res[i++] = *s2++;
 	return (res);
 }
 

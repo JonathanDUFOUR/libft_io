@@ -6,25 +6,25 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/25 19:14:18 by jdufour           #+#    #+#             */
-/*   Updated: 2021/07/22 20:14:46 by jodufour         ###   ########.fr       */
+/*   Updated: 2021/11/15 01:22:40 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 #include <string.h>
 
-static size_t	ft_strlen(char const *s)
+static size_t	ft_strlen(char const *str)
 {
-	register char const	*p = s;
+	register char const	*ptr = str;
 
-	while (*p)
-		++p;
-	return (p - s);
+	while (*ptr)
+		++ptr;
+	return (ptr - str);
 }
 
-ssize_t	ft_putstr_fd(char const *s, int fd)
+int	ft_putstr_fd(char const *str, int const fd)
 {
-	if (!s)
+	if (!str)
 		return (-1);
-	return (write(fd, s, ft_strlen(s)));
+	return ((int)write(fd, str, ft_strlen(str)));
 }

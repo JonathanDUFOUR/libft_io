@@ -6,22 +6,24 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/21 06:21:42 by jdufour           #+#    #+#             */
-/*   Updated: 2021/07/22 20:18:45 by jodufour         ###   ########.fr       */
+/*   Updated: 2021/11/15 20:06:58 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <fcntl.h>
 #include "ft_io.h"
 
-void	ft_cat(char **f)
+void	ft_cat(char const **files)
 {
-	int		fd;
-	int		rd;
 	char	output[BUFF_SIZE];
+	ssize_t	rd;
+	int		fd;
 
-	while (*f)
+	if (!files)
+		return ;
+	while (*files)
 	{
-		fd = open(*f++, O_RDONLY);
+		fd = open(*files++, O_RDONLY);
 		if (fd < 0)
 			continue ;
 		rd = read(fd, &output, BUFF_SIZE);

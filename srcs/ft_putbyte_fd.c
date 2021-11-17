@@ -1,19 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putbyte.c                                       :+:      :+:    :+:   */
+/*   ft_putbyte_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/25 03:01:12 by jdufour           #+#    #+#             */
-/*   Updated: 2021/07/20 22:38:23 by jodufour         ###   ########.fr       */
+/*   Updated: 2021/11/15 00:22:38 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdint.h>
 #include <unistd.h>
 
-int	ft_putbyte_fd(uint8_t byte, int fd)
+int	ft_putbyte_fd(uint8_t const byte, int const fd)
 {
 	int	i;
 	int	ret;

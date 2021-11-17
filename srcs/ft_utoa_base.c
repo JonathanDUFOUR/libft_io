@@ -6,50 +6,45 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/10 01:19:22 by jodufour          #+#    #+#             */
-/*   Updated: 2021/07/22 20:17:43 by jodufour         ###   ########.fr       */
+/*   Updated: 2021/11/16 14:58:24 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "ft_io.h"
 
-static size_t	ft_strlen(char const *s)
+static size_t	ft_strlen(char const *str)
 {
-	register char const	*p = s;
+	register char const	*ptr = str;
 
-	while (*p)
-		++p;
-	return (p - s);
+	while (*ptr)
+		++ptr;
+	return (ptr - str);
 }
 
-static size_t	get_o_len(t_uint abs, t_uint b_len)
-{
-	if (abs < b_len)
-		return (1);
-	return (get_o_len(abs / b_len, b_len) + 1);
-}
-
-char	*ft_utoa_base(t_uint n, char const *base)
+char	*ft_utoa_base(t_uint nb, char const *base)
 {
 	char	*output;
-	char	*p;
-	t_uint	b_len;
-	t_uint	o_len;
+	t_uint	len;
+	t_uint	base_len;
 
-	if (!base || ft_wrong_base(base))
+	if (!ft_isvalid(base))
 		return (NULL);
-	b_len = ft_strlen(base);
-	o_len = get_o_len(n, b_len);
-	output = malloc((o_len + 1) * sizeof(char));
+	len = ft_uintlen_base(nb, (base_len = (t_uint)ft_strlen(base)));
+	output = malloc((len + 1) * sizeof(char));
 	if (!output)
 		return (NULL);
-	p = output + o_len;
-	*p = 0;
-	while (o_len--)
+	output += len;
+	*output-- = 0;
+	if (!nb)
+		*output-- = '0';
+	else
 	{
-		--p;
-		*p = base[n % b_len];
-		n /= b_len;
+		while (nb && len--)
+		{
+			*output-- = base[nb % base_len];
+			nb /= base_len;
+		}
 	}
-	return (output);
+	return (++output);
 }
