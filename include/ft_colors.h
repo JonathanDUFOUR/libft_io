@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   colors.h                                           :+:      :+:    :+:   */
+/*   ft_colors.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/08 11:05:29 by jodufour          #+#    #+#             */
-/*   Updated: 2021/11/09 08:08:32 by jodufour         ###   ########.fr       */
+/*   Updated: 2021/11/18 23:27:40 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef COLORS_H
-# define COLORS_H
+#ifndef FT_COLORS_H
+# define FT_COLORS_H
 
 # define BLACK		"\e[30m"
 # define RED		"\e[31m"
