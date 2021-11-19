@@ -6,7 +6,7 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/18 22:19:05 by jodufour          #+#    #+#             */
-/*   Updated: 2021/11/19 08:46:58 by jodufour         ###   ########.fr       */
+/*   Updated: 2021/11/19 09:03:34 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,25 +15,25 @@
 
 # include "type/t_int.h"
 
-# define HHINT_MAX	0x7f
-# define HHINT_MIN	0x80
-# define HHUINT_MAX	0xff
-# define HHUINT_MIN	0x00
-# define HINT_MAX	0x7fff
-# define HINT_MIN	0x8000
-# define HUINT_MAX	0xffff
-# define HUINT_MIN	0x0000
-# define INT_MAX	0x7fffffff
-# define INT_MIN	0x80000000
-# define UINT_MAX	0xffffffff
-# define UINT_MIN	0x00000000
-# define LINT_MAX	0x7fffffffffffffff
-# define LINT_MIN	0x8000000000000000
-# define LUINT_MAX	0xffffffffffffffff
-# define LUINT_MIN	0x0000000000000000
-# define LLINT_MAX	0x7fffffffffffffff
-# define LLINT_MIN	0x8000000000000000
-# define LLUINT_MAX	0xffffffffffffffff
-# define LLUINT_MIN	0x0000000000000000
+static t_hhint const	g_hhint_max = 0x7f;
+static t_hhint const	g_hhint_min = 0x80;
+static t_hhuint const	g_hhuint_max = 0xff;
+static t_hhuint const	g_hhuint_min = 0x00;
+static t_hint const		g_hint_max = 0x7fff;
+static t_hint const		g_hint_min = 0x8000;
+static t_huint const	g_huint_max = 0xffff;
+static t_huint const	g_huint_min = 0x0000;
+static t_int const		g_int_max = 0x7fffffff;
+static t_int const		g_int_min = 0x80000000;
+static t_uint const		g_uint_max = 0xffffffff;
+static t_uint const		g_uint_min = 0x00000000;
+static t_lint const		g_lint_max = 0x7fffffffffffffff;
+static t_lint const		g_lint_min = 0x8000000000000000;
+static t_luint const	g_luint_max = 0xffffffffffffffff;
+static t_luint const	g_luint_min = 0x0000000000000000;
+static t_llint const	g_llint_max = 0x7fffffffffffffff;
+static t_llint const	g_llint_min = 0x8000000000000000;
+static t_lluint const	g_lluint_max = 0xffffffffffffffff;
+static t_lluint const	g_lluint_min = 0x0000000000000000;
 
 #endif
