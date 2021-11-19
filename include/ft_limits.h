@@ -6,7 +6,7 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/18 22:19:05 by jodufour          #+#    #+#             */
-/*   Updated: 2021/11/19 08:24:23 by jodufour         ###   ########.fr       */
+/*   Updated: 2021/11/19 08:46:58 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,28 +15,25 @@
 
 # include "type/t_int.h"
 
-enum	e_int_limits
-{
-	HHINT_MAX	= (t_hhint)(~(1 << 7)),
-	HHINT_MIN	= (t_hhint)(1 << 7),
-	HHUINT_MAX	= (t_hhuint)((~0U) >> 24),
-	HHUINT_MIN	= (t_hhuint)(0U),
-	HINT_MAX	= (t_hint)(~(1 << 15)),
-	HINT_MIN	= (t_hint)(1 << 15),
-	HUINT_MAX	= (t_huint)((~0U) >> 16),
-	HUINT_MIN	= (t_huint)(0U),
-	INT_MAX		= (t_int)(~(1 << 31)),
-	INT_MIN		= (t_int)(1 << 31),
-	UINT_MAX	= (t_uint)(~0U),
-	UINT_MIN	= (t_uint)(0U),
-	LINT_MAX	= (t_lint)(~(1L << 63)),
-	LINT_MIN	= (t_lint)(1L << 63),
-	LUINT_MAX	= (t_luint)(~0LU),
-	LUINT_MIN	= (t_luint)(0LU),
-	LLINT_MAX	= (t_llint)(~(1LL << 63)),
-	LLINT_MIN	= (t_llint)(1LL << 63),
-	LLUINT_MAX	= (t_lluint)(~0LLU),
-	LLUINT_MIN	= (t_lluint)(0LLU)
-};
+# define HHINT_MAX	0x7f
+# define HHINT_MIN	0x80
+# define HHUINT_MAX	0xff
+# define HHUINT_MIN	0x00
+# define HINT_MAX	0x7fff
+# define HINT_MIN	0x8000
+# define HUINT_MAX	0xffff
+# define HUINT_MIN	0x0000
+# define INT_MAX	0x7fffffff
+# define INT_MIN	0x80000000
+# define UINT_MAX	0xffffffff
+# define UINT_MIN	0x00000000
+# define LINT_MAX	0x7fffffffffffffff
+# define LINT_MIN	0x8000000000000000
+# define LUINT_MAX	0xffffffffffffffff
+# define LUINT_MIN	0x0000000000000000
+# define LLINT_MAX	0x7fffffffffffffff
+# define LLINT_MIN	0x8000000000000000
+# define LLUINT_MAX	0xffffffffffffffff
+# define LLUINT_MIN	0x0000000000000000
 
 #endif
