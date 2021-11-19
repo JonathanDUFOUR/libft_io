@@ -6,12 +6,14 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/18 22:19:05 by jodufour          #+#    #+#             */
-/*   Updated: 2021/11/19 03:32:52 by jodufour         ###   ########.fr       */
+/*   Updated: 2021/11/19 03:39:57 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_LIMITS_H
 # define FT_LIMITS_H
+
+# include "type/t_int.h"
 
 # define HHINT_MAX	(t_hhint)(~(1 << 7))
 # define HHINT_MIN	(t_hhint)(1 << 7)
