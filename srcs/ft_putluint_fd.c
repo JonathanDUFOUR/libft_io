@@ -6,7 +6,7 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/06 17:42:00 by jonathan          #+#    #+#             */
-/*   Updated: 2021/11/15 01:38:09 by jodufour         ###   ########.fr       */
+/*   Updated: 2021/11/20 08:22:25 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,5 +22,5 @@ int	ft_putluint_fd(t_luint const nb, int const fd)
 	digit = nb % 10 + '0';
 	if (nb / 10)
 		return (ft_putluint_fd(nb / 10, fd) + (int)write(fd, &digit, 1));
-	return ((int)write(1, &digit, 1));
+	return ((int)write(fd, &digit, 1));
 }

@@ -1,35 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putlint_base_fd.c                               :+:      :+:    :+:   */
+/*   ft_atohi_base.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/15 18:03:29 by jodufour          #+#    #+#             */
-/*   Updated: 2021/11/20 08:17:11 by jodufour         ###   ########.fr       */
+/*   Created: 2021/11/19 19:00:16 by jodufour          #+#    #+#             */
+/*   Updated: 2021/11/20 07:49:43 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_io.h"
 
-int	ft_putlint_base_fd(t_lint const nb, const char *base, int const fd)
+t_hint	ft_atohi_base(char const *str, char const *base)
 {
-	t_luint	abs;
-	char	digit;
+	t_hint	output;
+	int		sign;
 	int		base_len;
 
-	if (write(fd, "", 0) == -1 || !ft_isvalid(base))
-		return (-1);
-	abs = nb;
-	if (nb < 0)
-	{
-		abs = -nb;
-		write(fd, "-", 1);
-	}
+	if (!ft_isvalid(base))
+		return (0);
+	output = 0;
+	sign = 1;
 	base_len = ft_indexof(0, base);
-	digit = base[abs % base_len];
-	if (abs / base_len)
-		return (ft_putlint_base_fd(abs / base_len, base, fd)
-			+ (int)write(fd, &digit, 1) + (nb < 0));
-	return ((int)write(fd, &digit, 1) + (nb < 0));
+	while (ft_isspace(*str))
+		++str;
+	if (*str == '-' || *str == '+')
+		if (*str++ == '-')
+			sign ^= ~1u;
+	while (*str && ft_indexof(*str, base) != -1)
+		output = output * base_len + ft_indexof(*str++, base);
+	return (output * sign);
 }

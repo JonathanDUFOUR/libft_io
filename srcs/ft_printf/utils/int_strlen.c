@@ -6,7 +6,7 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/10 16:14:01 by jodufour          #+#    #+#             */
-/*   Updated: 2021/11/15 23:59:47 by jodufour         ###   ########.fr       */
+/*   Updated: 2021/11/20 07:21:36 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,5 +18,5 @@ int	int_strlen(char const *str)
 
 	while (*ptr)
 		++ptr;
-	return (ptr - str);
+	return ((int)(ptr - str));
 }

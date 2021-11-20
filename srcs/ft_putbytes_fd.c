@@ -6,7 +6,7 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/07 18:12:50 by jodufour          #+#    #+#             */
-/*   Updated: 2021/11/15 00:23:14 by jodufour         ###   ########.fr       */
+/*   Updated: 2021/11/20 09:11:44 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	ft_putbytes_fd(void *addr, size_t size, int const fd)
 {
 	int	ret;
 
-	if (!addr || write(fd, "", 0) == -1)
+	if (write(fd, "", 0) == -1)
 		return (-1);
 	ret = 0;
 	while (size--)

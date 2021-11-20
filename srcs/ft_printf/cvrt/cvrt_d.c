@@ -6,7 +6,7 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/18 06:19:49 by jodufour          #+#    #+#             */
-/*   Updated: 2021/11/15 19:53:09 by jodufour         ###   ########.fr       */
+/*   Updated: 2021/11/20 07:17:19 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ static int	padded_putllint(
 	padlen = ctx->prec - (len - (nb < 0));
 	if (padlen && padding('0', padlen))
 		return (MALLOC_ERR);
-	ft_putlluint_fd((nb < 0) * (-nb) + (nb >= 0) * nb, 1);
+	ft_putlluint_fd((nb < 0) * (t_lluint)(-nb) + (nb >= 0) * (t_lluint)nb, 1);
 	if (ctx->flags & (1 << 0))
 	{
 		padlen = fwidth_padlen(nb, ctx);

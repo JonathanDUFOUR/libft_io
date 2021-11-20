@@ -6,7 +6,7 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/11 11:15:14 by jodufour          #+#    #+#             */
-/*   Updated: 2021/11/11 11:15:53 by jodufour         ###   ########.fr       */
+/*   Updated: 2021/11/20 07:20:42 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,6 @@ int	putnil(t_ctx *const ctx)
 	ctx->len += ctx->fwidth;
 	if (ctx->fwidth > ctx->prec)
 		return (padded_putnstr("(nil)", ctx));
-	write(1, "(nil)", ctx->prec);
+	write(1, "(nil)", (size_t)ctx->prec);
 	return (SUCCESS);
 }

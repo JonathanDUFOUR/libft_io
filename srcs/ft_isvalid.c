@@ -25,12 +25,12 @@ bool	ft_isvalid(char const *base)
 {
 	char const	*ptr;
 
-	if (!base || ft_strlen(base) < 2)
-		return (true);
+	if (ft_strlen(base) < 2)
+		return (false);
 	while (*base)
 	{
 		if (*base == '-' || *base == '+' || ft_isspace(*base))
-			return (true);
+			return (false);
 		ptr = base;
 		while (*++ptr)
 			if (*base == *ptr)

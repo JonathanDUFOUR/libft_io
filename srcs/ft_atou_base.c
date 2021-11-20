@@ -1,32 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   padding.c                                          :+:      :+:    :+:   */
+/*   ft_atou_base.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/17 13:10:40 by jodufour          #+#    #+#             */
-/*   Updated: 2021/11/20 07:24:42 by jodufour         ###   ########.fr       */
+/*   Created: 2021/11/20 07:39:21 by jodufour          #+#    #+#             */
+/*   Updated: 2021/11/20 07:55:58 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include <unistd.h>
-#include "enum/e_ret.h"
+#include "ft_io.h"
 
-int	padding(int const c, int padlen)
+t_uint	ft_atou_base(char const *str, char const *base)
 {
-	char	*padding;
-	char	*ptr;
+	t_uint	output;
+	int		base_len;
 
-	padding = malloc((size_t)(padlen + 1) * sizeof(char));
-	if (!padding)
-		return (MALLOC_ERR);
-	ptr = padding;
-	while (padlen--)
-		*ptr++ = (char const)c;
-	*ptr = 0;
-	write(1, padding, (size_t)(ptr - padding));
-	free(padding);
-	return (SUCCESS);
+	if (!ft_isvalid(base))
+		return (0);
+	output = 0;
+	base_len = ft_indexof(0, base);
+	while (ft_isspace(*str))
+		++str;
+	if (*str == '+')
+		++str;
+	while (*str && ft_indexof(*str, base) != -1)
+		output = output * base_len + ft_indexof(*str++, base);
+	return (output);
 }

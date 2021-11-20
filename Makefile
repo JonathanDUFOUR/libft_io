@@ -6,7 +6,7 @@
 #    By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/07/20 23:33:41 by jodufour          #+#    #+#              #
-#    Updated: 2021/11/16 14:59:34 by jodufour         ###   ########.fr        #
+#    Updated: 2021/11/20 07:38:05 by jodufour         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -68,16 +68,25 @@ SRC			=	\
 					parse_lmod.c			\
 					parse_prec.c			\
 				}							\
+				ft_atohhi_base.c			\
 				ft_atohhi.c					\
+				ft_atohhu_base.c			\
 				ft_atohhu.c					\
+				ft_atohi_base.c				\
 				ft_atohi.c					\
+				ft_atohu_base.c				\
 				ft_atohu.c					\
 				ft_atoi_base.c				\
 				ft_atoi.c					\
+				ft_atoli_base.c				\
 				ft_atoli.c					\
+				ft_atolli_base.c			\
 				ft_atolli.c					\
+				ft_atollu_base.c			\
 				ft_atollu.c					\
+				ft_atolu_base.c				\
 				ft_atolu.c					\
+				ft_atou_base.c				\
 				ft_atou.c					\
 				ft_cat.c					\
 				ft_convert_base.c			\

@@ -6,7 +6,7 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/14 23:58:11 by jodufour          #+#    #+#             */
-/*   Updated: 2021/11/14 23:58:32 by jodufour         ###   ########.fr       */
+/*   Updated: 2021/11/20 08:46:28 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,26 +16,25 @@
 char	*ft_litoa(t_lint nb)
 {
 	char	*output;
-	char	*ptr;
 	t_uint	len;
 
 	len = ft_lintlen(nb);
 	output = malloc((len + 1) * sizeof(char));
 	if (!output)
 		return (NULL);
-	ptr = output + len;
-	*ptr-- = 0;
+	output += len;
+	*output-- = 0;
 	if (!nb)
-		*ptr = '0';
+		*output-- = '0';
 	else
 	{
 		while (nb && len--)
 		{
-			*ptr-- = (-(nb < 0) | 1) * (nb % 10) + '0';
+			*output-- = (-(nb < 0) | 1) * (nb % 10) + '0';
 			nb /= 10;
 		}
 		if (len)
-			*ptr = '-';
+			*output-- = '-';
 	}
-	return (output);
+	return (++output);
 }

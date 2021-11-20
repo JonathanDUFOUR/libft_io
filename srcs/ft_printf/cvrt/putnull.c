@@ -6,7 +6,7 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/05 15:43:20 by jodufour          #+#    #+#             */
-/*   Updated: 2021/11/11 08:56:28 by jodufour         ###   ########.fr       */
+/*   Updated: 2021/11/20 07:20:55 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,6 @@ int	putnull(t_ctx *const ctx)
 	ctx->len += ctx->fwidth;
 	if (ctx->fwidth > ctx->prec)
 		return (padded_putnstr("(null)", ctx));
-	write(1, "(null)", ctx->prec);
+	write(1, "(null)", (size_t)ctx->prec);
 	return (SUCCESS);
 }
