@@ -35,6 +35,7 @@ bool	ft_isvalid(char const *base)
 		while (*++ptr)
 			if (*base == *ptr)
 				return (false);
+		++base;
 	}
 	return (true);
 }
