@@ -6,7 +6,7 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/10 22:02:19 by jodufour          #+#    #+#             */
-/*   Updated: 2021/11/20 08:49:16 by jodufour         ###   ########.fr       */
+/*   Updated: 2021/11/21 19:07:42 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ char	*ft_lutoa_base(t_luint nb, char const *base)
 	output += len;
 	*output-- = 0;
 	if (!nb)
-		*output-- = '0';
+		*output-- = *base;
 	else
 	{
 		while (nb && len--)

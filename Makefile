@@ -6,7 +6,7 @@
 #    By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/07/20 23:33:41 by jodufour          #+#    #+#              #
-#    Updated: 2021/11/20 07:38:05 by jodufour         ###   ########.fr        #
+#    Updated: 2021/11/21 18:50:12 by jodufour         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -163,6 +163,7 @@ SRC			=	\
 				ft_putwchar_fd.c			\
 				ft_tolower.c				\
 				ft_toupper.c				\
+				ft_uintlen_base.c			\
 				ft_uintlen.c				\
 				ft_utoa_base.c				\
 				ft_utoa.c					\

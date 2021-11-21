@@ -6,7 +6,7 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/15 00:34:41 by jodufour          #+#    #+#             */
-/*   Updated: 2021/11/20 08:31:29 by jodufour         ###   ########.fr       */
+/*   Updated: 2021/11/21 19:06:42 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ char	*ft_hitoa_base(t_hint nb, char const *base)
 	output += len;
 	*output-- = 0;
 	if (!nb)
-		*output-- = '0';
+		*output-- = *base;
 	else
 	{
 		while (nb && len--)

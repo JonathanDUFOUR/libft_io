@@ -6,7 +6,7 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/15 00:42:55 by jodufour          #+#    #+#             */
-/*   Updated: 2021/11/20 08:31:32 by jodufour         ###   ########.fr       */
+/*   Updated: 2021/11/21 19:06:55 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ char	*ft_hutoa_base(t_huint nb, char const *base)
 	output += len;
 	*output-- = 0;
 	if (!nb)
-		*output-- = '0';
+		*output-- = *base;
 	else
 	{
 		while (nb && len--)

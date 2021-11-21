@@ -6,7 +6,7 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/21 06:23:38 by jdufour           #+#    #+#             */
-/*   Updated: 2021/11/20 08:31:46 by jodufour         ###   ########.fr       */
+/*   Updated: 2021/11/21 19:12:07 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ char	*ft_itoa_base(int nb, char const *base)
 	output += len;
 	*output-- = 0;
 	if (!nb)
-		*output-- = '0';
+		*output-- = *base;
 	else
 	{
 		while (nb && len--)
