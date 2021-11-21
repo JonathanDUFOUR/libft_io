@@ -6,30 +6,26 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/15 15:33:07 by jodufour          #+#    #+#             */
-/*   Updated: 2021/11/20 08:18:04 by jodufour         ###   ########.fr       */
+/*   Updated: 2021/11/21 02:35:44 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdlib.h>
 #include "ft_io.h"
 
-int	ft_putllint_base_fd(t_llint const nb, const char *base, int const fd)
+int	ft_putllint_base_fd(t_llint const nb, char const *base, int const fd)
 {
-	t_lluint	abs;
-	char		digit;
-	int			base_len;
+	int		ret;
+	char	*buff;
+	t_uint	base_len;
 
 	if (write(fd, "", 0) == -1 || !ft_isvalid(base))
 		return (-1);
-	abs = nb;
-	if (nb < 0)
-	{
-		abs = -nb;
-		write(fd, "-", 1);
-	}
-	base_len = ft_indexof(0, base);
-	digit = base[abs % base_len];
-	if (abs / base_len)
-		return (ft_putllint_base_fd(abs / base_len, base, fd)
-			+ (int)write(fd, &digit, 1) + (nb < 0));
-	return ((int)write(fd, &digit, 1) + (nb < 0));
+	buff = ft_llitoa_base(nb, base);
+	if (!buff)
+		return (-1);
+	base_len = (t_uint)ft_indexof(0, base);
+	ret = (int)write(1, buff, ft_llintlen_base(nb, base_len));
+	free(buff);
+	return (ret);
 }
