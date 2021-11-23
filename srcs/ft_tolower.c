@@ -6,7 +6,7 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/24 04:52:27 by jdufour           #+#    #+#             */
-/*   Updated: 2021/11/15 01:25:44 by jodufour         ###   ########.fr       */
+/*   Updated: 2021/11/23 02:46:15 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,9 @@
 
 int	ft_tolower(int const c)
 {
-	return ((c + ft_isupper(c) * ('a' - 'A')));
+	if (ft_isupper(c))
+		return (c + 'a' - 'A');
+	if (c < -1)
+		return ((t_hhuint)c);
+	return (c);
 }
