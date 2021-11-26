@@ -6,7 +6,7 @@
 #    By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/07/20 23:33:41 by jodufour          #+#    #+#              #
-#    Updated: 2021/11/21 18:50:12 by jodufour         ###   ########.fr        #
+#    Updated: 2021/11/25 23:43:59 by jodufour         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -145,8 +145,12 @@ SRC			=	\
 				ft_putendl_fd.c				\
 				ft_puthhint_base_fd.c		\
 				ft_puthhint_fd.c			\
+				ft_puthhuint_base_fd.c		\
+				ft_puthhuint_fd.c			\
 				ft_puthint_base_fd.c		\
 				ft_puthint_fd.c				\
+				ft_puthuint_base_fd.c		\
+				ft_puthuint_fd.c			\
 				ft_putint_base_fd.c			\
 				ft_putint_fd.c				\
 				ft_putlint_base_fd.c		\

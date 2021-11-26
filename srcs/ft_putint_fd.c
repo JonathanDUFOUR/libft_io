@@ -6,49 +6,34 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/26 02:19:11 by jdufour           #+#    #+#             */
-/*   Updated: 2021/11/21 01:50:31 by jodufour         ###   ########.fr       */
+/*   Updated: 2021/11/26 00:52:29 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 #include "ft_io.h"
 
-static t_uint	power(t_uint const nb, t_uint const exp)
+static void	fill_buff(t_uint abs, char *buff)
 {
-	if (exp)
-		return (nb * power(nb, exp - 1));
-	return (1);
-}
-
-static void	fill_buff(t_uint const abs, char *buff)
-{
-	t_uint	exp;
-
-	exp = 9;
-	while (exp && (abs < power(10, exp)))
-		--exp;
-	while (exp)
+	while (abs)
 	{
-		*buff++ = abs / power(10, exp) % 10 + '0';
-		--exp;
+		*--buff = abs % 10 + '0';
+		abs /= 10;
 	}
-	*buff = abs / power(10, exp) % 10 + '0';
 }
 
 int	ft_putint_fd(int const nb, int const fd)
 {
 	char	buff[11];
+	t_uint	len;
 
 	if (write(fd, "", 0) == -1)
 		return (-1);
 	if (!nb)
 		return ((int)write(fd, "0", 1));
 	if (nb < 0)
-	{
 		*buff = '-';
-		fill_buff(-nb, buff + 1);
-	}
-	else
-		fill_buff(nb, buff);
-	return ((int)write(fd, buff, ft_intlen(nb)));
+	len = ft_intlen(nb);
+	fill_buff(nb * (-(nb < 0) | 1), buff + len);
+	return ((int)write(fd, buff, len));
 }

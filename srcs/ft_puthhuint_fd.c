@@ -1,48 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_puthhuint.c                                     :+:      :+:    :+:   */
+/*   ft_puthhuint_fd.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/15 01:35:22 by jodufour          #+#    #+#             */
-/*   Updated: 2021/11/21 01:52:01 by jodufour         ###   ########.fr       */
+/*   Updated: 2021/11/26 00:50:18 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 #include "ft_io.h"
 
-static t_hhuint	power(t_hhuint const nb, t_hhuint const exp)
+static void	fill_buff(t_hhuint abs, char *buff)
 {
-	if (exp)
-		return (nb * power(nb, exp - 1));
-	return (1);
-}
-
-static void	fill_buff(t_hhuint const abs, char *buff)
-{
-	t_hhuint	exp;
-
-	exp = 2;
-	while (exp && (abs < power(10, exp)))
-		--exp;
-	while (exp)
+	while (abs)
 	{
-		*buff++ = abs / power(10, exp) % 10 + '0';
-		--exp;
+		*--buff = abs % 10 + '0';
+		abs /= 10;
 	}
-	*buff = abs / power(10, exp) % 10 + '0';
 }
 
 int	ft_puthhuint_fd(t_hhuint const nb, int const fd)
 {
 	char	buff[3];
+	t_uint	len;
 
 	if (write(fd, "", 0) == -1)
 		return (-1);
 	if (!nb)
 		return ((int)write(fd, "0", 1));
-	fill_buff(nb, buff);
-	return ((int)write(fd, buff, ft_hhuintlen(nb)));
+	len = ft_hhuintlen(nb);
+	fill_buff(nb, buff + len);
+	return ((int)write(fd, buff, len));
 }
