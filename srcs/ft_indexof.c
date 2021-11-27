@@ -6,7 +6,7 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/21 06:22:26 by jdufour           #+#    #+#             */
-/*   Updated: 2021/11/21 13:04:42 by jodufour         ###   ########.fr       */
+/*   Updated: 2021/11/27 14:00:57 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,5 @@ ssize_t	ft_indexof(char const c, char const *str)
 		i++;
 	if (str[i] == c)
 		return (i);
-	else
-		return (-1);
+	return (-1);
 }

@@ -6,7 +6,7 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/20 19:02:43 by jodufour          #+#    #+#             */
-/*   Updated: 2021/11/27 00:46:39 by jodufour         ###   ########.fr       */
+/*   Updated: 2021/11/27 14:49:13 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,8 +83,6 @@ int			ft_putuint_fd(t_uint const nb, int const fd);
 int			ft_putwchar_fd(wchar_t const wc, int const fd);
 int			ft_tolower(int const c);
 int			ft_toupper(int const c);
-
-void		ft_cat(char const **files);
 
 bool		ft_isalnum(int const c);
 bool		ft_isalpha(int const c);
@@ -198,8 +196,6 @@ t_lluint	ft_atollu(char const *str)
 t_lluint	ft_atollu_base(char const *str, char const *base)
 			__attribute__((nonnull));
 
-ssize_t		ft_file_size(char const *file)
-			__attribute__((nonnull));
 ssize_t		ft_indexof(char const c, char const *str)
 			__attribute__((nonnull (2)));
 
