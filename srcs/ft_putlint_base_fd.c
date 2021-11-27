@@ -6,7 +6,7 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/15 18:03:29 by jodufour          #+#    #+#             */
-/*   Updated: 2021/11/21 02:34:53 by jodufour         ###   ########.fr       */
+/*   Updated: 2021/11/27 00:12:05 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	ft_putlint_base_fd(t_lint const nb, char const *base, int const fd)
 	if (!buff)
 		return (-1);
 	base_len = (t_uint)ft_indexof(0, base);
-	ret = (int)write(1, buff, ft_lintlen_base(nb, base_len));
+	ret = (int)write(fd, buff, ft_lintlen_base(nb, base_len));
 	free(buff);
 	return (ret);
 }

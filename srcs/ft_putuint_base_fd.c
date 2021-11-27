@@ -6,7 +6,7 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/21 06:24:56 by jdufour           #+#    #+#             */
-/*   Updated: 2021/11/21 09:30:23 by jodufour         ###   ########.fr       */
+/*   Updated: 2021/11/27 00:12:26 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	ft_putuint_base_fd(t_uint const nb, char const *base, int const fd)
 	if (!buff)
 		return (-1);
 	base_len = (t_uint)ft_indexof(0, base);
-	ret = (int)write(1, buff, ft_uintlen_base(nb, base_len));
+	ret = (int)write(fd, buff, ft_uintlen_base(nb, base_len));
 	free(buff);
 	return (ret);
 }

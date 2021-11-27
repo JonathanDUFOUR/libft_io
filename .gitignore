@@ -1,6 +1,8 @@
 **
 
-!*/
+!srcs/
+!private/
+!include/
 !*.c
 !*.h
 !Makefile

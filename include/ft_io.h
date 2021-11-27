@@ -6,7 +6,7 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/20 19:02:43 by jodufour          #+#    #+#             */
-/*   Updated: 2021/11/20 09:10:48 by jodufour         ###   ########.fr       */
+/*   Updated: 2021/11/27 00:46:39 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,9 @@ int			ft_putlint_base_fd(
 				t_lint const nb, char const *base, int const fd)
 			__attribute__((nonnull (2)));
 int			ft_putlint_fd(t_lint const nb, int const fd);
+int			ft_putllint_base_fd(
+				t_llint const nb, char const *base, int const fd)
+			__attribute__((nonnull (2)));
 int			ft_putllint_fd(t_llint const nb, int const fd);
 int			ft_putlluint_base_fd(
 				t_lluint const nb, char const *base, int const fd)
@@ -91,7 +94,8 @@ bool		ft_islower(int const c);
 bool		ft_isprint(int const c);
 bool		ft_isspace(int const c);
 bool		ft_isupper(int const c);
-bool		ft_isvalid(char const *base) __attribute__((nonnull));
+bool		ft_isvalid(char const *base)
+			__attribute__((nonnull));
 
 char		*ft_convert_base(
 				char const *nb, char const *base_from, char const *base_to)
