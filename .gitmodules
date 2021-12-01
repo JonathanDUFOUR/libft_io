@@ -1,3 +1,0 @@
-[submodule "tester"]
-	path = tester
-	url = git@gitlab.com:JonathanDUFOUR/libft_io_tester.git

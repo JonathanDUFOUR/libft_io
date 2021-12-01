@@ -1,9 +1,4 @@
-**
-
-!srcs/
-!private/
-!include/
-!*.c
-!*.h
-!Makefile
-!.gitignore
+**.a
+**.o
+**.d
+tester
