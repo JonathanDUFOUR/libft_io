@@ -6,7 +6,7 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/20 19:02:43 by jodufour          #+#    #+#             */
-/*   Updated: 2021/12/29 02:14:20 by jodufour         ###   ########.fr       */
+/*   Updated: 2022/02/24 15:26:33 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int			ft_atoi(char const *str)
 int			ft_fddel(int *const fd)
 			__attribute__((nonnull));
 int			ft_putbyte_fd(uint8_t const byte, int const fd);
-int			ft_putbytes_fd(void *addr, size_t size, int const fd)
+int			ft_putbytes_fd(void const *addr, size_t const size, int const fd)
 			__attribute__((nonnull (1)));
 int			ft_putchar_fd(char const c, int const fd);
 int			ft_putendl_fd(char const *str, int const fd)

@@ -6,7 +6,7 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/07 18:12:50 by jodufour          #+#    #+#             */
-/*   Updated: 2021/12/17 20:08:37 by jodufour         ###   ########.fr       */
+/*   Updated: 2022/02/24 15:25:30 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 	Return the number of printed bytes
 	Return -1 upon failure
 */
-int	ft_putbytes_fd(void *addr, size_t size, int const fd)
+int	ft_putbytes_fd(void const *addr, size_t const size, int const fd)
 {
 	int		ret;
 	size_t	i;
@@ -30,7 +30,7 @@ int	ft_putbytes_fd(void *addr, size_t size, int const fd)
 	i = 0;
 	while (i < size)
 	{
-		ret += ft_putbyte_fd(*((uint8_t *)(addr + i)), fd);
+		ret += ft_putbyte_fd(*(uint8_t *)(addr + i), fd);
 		if (++i < size)
 			ret += (int)write(fd, " ", 1);
 	}
