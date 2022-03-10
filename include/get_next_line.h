@@ -6,7 +6,7 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/20 23:52:53 by jodufour          #+#    #+#             */
-/*   Updated: 2021/07/22 01:52:25 by jodufour         ###   ########.fr       */
+/*   Updated: 2022/03/10 07:51:38 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,6 @@
 
 int		get_next_line(int fd, char **line);
 bool	gnl_fd_del(int fd);
-void	gnl_clear(void);
+void	gnl_clear(void) __attribute__((destructor));
 
 #endif
