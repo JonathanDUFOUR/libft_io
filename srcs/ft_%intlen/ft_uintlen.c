@@ -6,11 +6,11 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/14 12:06:13 by jodufour          #+#    #+#             */
-/*   Updated: 2021/12/17 19:46:36 by jodufour         ###   ########.fr       */
+/*   Updated: 2022/04/27 09:07:54 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "type/t_int.h"
+#include "t_int.h"
 
 /*
 	Return the length of the given t_uint `nb`

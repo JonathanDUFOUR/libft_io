@@ -13,8 +13,8 @@
 #include <unistd.h>
 #include "ft_io.h"
 #include "internal.h"
-#include "enum/e_ret.h"
-#include "enum/e_style.h"
+#include "e_ret.h"
+#include "e_style.h"
 
 static t_lluint	get_right_type(t_ctx *const ctx, va_list va)
 {

@@ -6,11 +6,11 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/14 23:17:57 by jodufour          #+#    #+#             */
-/*   Updated: 2021/12/17 19:23:58 by jodufour         ###   ########.fr       */
+/*   Updated: 2022/04/27 09:05:30 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "type/t_int.h"
+#include "t_int.h"
 
 /*
 	Return the length of the given t_hhint `nb` in base `base_len`

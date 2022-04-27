@@ -6,14 +6,14 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/09 04:38:29 by jodufour          #+#    #+#             */
-/*   Updated: 2021/11/15 19:54:31 by jodufour         ###   ########.fr       */
+/*   Updated: 2022/04/27 09:08:51 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 #include "ft_io.h"
 #include "internal.h"
-#include "enum/e_ret.h"
+#include "e_ret.h"
 
 static int	padded_putaddr(
 	t_lluint const nb,

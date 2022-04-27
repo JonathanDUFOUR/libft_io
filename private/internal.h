@@ -6,7 +6,7 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/10 15:33:24 by jodufour          #+#    #+#             */
-/*   Updated: 2021/11/15 23:56:46 by jodufour         ###   ########.fr       */
+/*   Updated: 2022/04/27 09:06:22 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 # include <wchar.h>
 # include <stdarg.h>
 # include <stdbool.h>
-# include "type/t_ctx.h"
+# include "t_ctx.h"
 
 int		int_strlen(char const *str);
 int		int_wclen(wchar_t const wc);

@@ -6,7 +6,7 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/20 19:02:43 by jodufour          #+#    #+#             */
-/*   Updated: 2022/02/24 15:26:33 by jodufour         ###   ########.fr       */
+/*   Updated: 2022/04/27 09:03:23 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 # include <wchar.h>
 # include "ft_printf.h"
 # include "get_next_line.h"
-# include "type/t_int.h"
+# include "t_int.h"
 
 # ifndef BUFF_SIZE
 #  define BUFF_SIZE 4096
