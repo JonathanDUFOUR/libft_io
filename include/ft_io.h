@@ -6,7 +6,7 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/20 19:02:43 by jodufour          #+#    #+#             */
-/*   Updated: 2022/04/27 09:03:23 by jodufour         ###   ########.fr       */
+/*   Updated: 2022/05/01 10:58:39 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,6 +99,8 @@ char		*ft_convert_base(
 				char const *nb, char const *base_from, char const *base_to)
 			__attribute__((nonnull));
 char		*ft_ctoa(char const c);
+char		*ft_dtoa(double const nb, t_uint const prec);
+char		*ft_ftoa(float const nb, t_uint const prec);
 char		*ft_hhitoa(t_hhint nb);
 char		*ft_hhitoa_base(t_hhint nb, char const *base)
 			__attribute__((nonnull (2)));

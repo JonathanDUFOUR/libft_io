@@ -6,7 +6,7 @@
 #    By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/07/20 23:33:41 by jodufour          #+#    #+#              #
-#    Updated: 2021/12/29 02:14:43 by jodufour         ###   ########.fr        #
+#    Updated: 2022/05/01 11:03:31 by jodufour         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -64,6 +64,8 @@ SRC			=	\
 				}								\
 				${addprefix ft_%toa/,			\
 					ft_ctoa.c					\
+					ft_dtoa.c					\
+					ft_ftoa.c					\
 					ft_hhitoa.c					\
 					ft_hhutoa.c					\
 					ft_hitoa.c					\
