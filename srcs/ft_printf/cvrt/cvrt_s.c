@@ -6,7 +6,7 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/09 04:38:14 by jodufour          #+#    #+#             */
-/*   Updated: 2022/04/27 09:09:01 by jodufour         ###   ########.fr       */
+/*   Updated: 2022/05/02 17:03:00 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,49 +15,42 @@
 #include "internal.h"
 #include "e_ret.h"
 
-int	padded_putnstr(
-	char const *str,
-	t_ctx *const ctx)
+void	padded_putnstr_fd(char const *str, t_ctx *const ctx)
 {
-	if (!(ctx->flags & (1 << 0)) && !(ctx->flags & (1 << 1))
-		&& padding(' ', ctx->fwidth - ctx->prec))
-		return (MALLOC_ERR);
-	if (ctx->flags & (1 << 1)
-		&& padding('0', ctx->fwidth - ctx->prec))
-		return (MALLOC_ERR);
-	write(1, str, (size_t)ctx->prec);
-	if (ctx->flags & (1 << 0)
-		&& padding(' ', ctx->fwidth - ctx->prec))
-		return (MALLOC_ERR);
-	return (SUCCESS);
+	if (!(ctx->flags & (1 << 0)) && !(ctx->flags & (1 << 1)))
+		padding_fd(' ', ctx->fwidth - ctx->prec, ctx->fd);
+	if (ctx->flags & (1 << 1))
+		padding_fd('0', ctx->fwidth - ctx->prec, ctx->fd);
+	write(ctx->fd, str, (size_t)ctx->prec);
+	if (ctx->flags & (1 << 0))
+		padding_fd(' ', ctx->fwidth - ctx->prec, ctx->fd);
 }
 
-int	padded_putnwstr(
+inline static void	__padded_putnwstr_fd(
 	wchar_t const *wstr,
 	t_ctx *const ctx,
 	int len,
 	int const size)
 {
 	len = ctx->prec;
-	if (!(ctx->flags & (1 << 0))
-		&& padding(' ', ctx->fwidth - size))
-		return (MALLOC_ERR);
+	if (!(ctx->flags & (1 << 0)))
+		padding_fd(' ', ctx->fwidth - size, ctx->fd);
 	while (len--)
-		if (ft_putwchar_fd(*wstr++, 1) == -1)
-			return (WRITE_ERR);
-	if (ctx->flags & (1 << 0)
-		&& padding(' ', ctx->fwidth - size))
-		return (MALLOC_ERR);
-	return (SUCCESS);
+		ft_putwchar_fd(*wstr++, ctx->fd);
+	if (ctx->flags & (1 << 0))
+		padding_fd(' ', ctx->fwidth - size, ctx->fd);
 }
 
-static int	get_char_ptr(t_ctx *const ctx, va_list va)
+inline static void	__get_char_ptr(t_ctx *const ctx, va_list va)
 {
 	char const	*str = va_arg(va, char *);
 	int			len;
 
 	if (!str)
-		return (putnull(ctx));
+	{
+		putnull(ctx);
+		return ;
+	}
 	len = int_strlen(str);
 	if (!ctx->precised || ctx->prec > len)
 		ctx->prec = len;
@@ -65,19 +58,22 @@ static int	get_char_ptr(t_ctx *const ctx, va_list va)
 		ctx->fwidth = ctx->prec;
 	ctx->len += ctx->fwidth;
 	if (ctx->fwidth > ctx->prec)
-		return (padded_putnstr(str, ctx));
-	write(1, str, (size_t)ctx->prec);
-	return (SUCCESS);
+		padded_putnstr_fd(str, ctx);
+	else
+		write(ctx->fd, str, (size_t)ctx->prec);
 }
 
-static int	get_wchar_ptr(t_ctx *const ctx, va_list va)
+inline static void	__get_wchar_ptr(t_ctx *const ctx, va_list va)
 {
 	wchar_t const	*wstr = va_arg(va, wchar_t *);
 	int				len;
 	int				size;
 
 	if (!wstr)
-		return (putnull(ctx));
+	{
+		putnull(ctx);
+		return ;
+	}
 	len = int_wstrlen(wstr);
 	size = int_wstrsize(wstr);
 	if (!ctx->precised || ctx->prec > len)
@@ -88,16 +84,16 @@ static int	get_wchar_ptr(t_ctx *const ctx, va_list va)
 	if (size < ctx->fwidth)
 		ctx->len += ctx->fwidth;
 	if (ctx->fwidth > size)
-		return (padded_putnwstr(wstr, ctx, len, size));
-	while (ctx->prec--)
-		ft_putwchar_fd(*wstr++, 1);
-	return (SUCCESS);
+		__padded_putnwstr_fd(wstr, ctx, len, size);
+	else
+		while (ctx->prec--)
+			ft_putwchar_fd(*wstr++, ctx->fd);
 }
 
-int	cvrt_s(t_ctx *const ctx, va_list va)
+void	cvrt_s(t_ctx *const ctx, va_list va)
 {
 	if (ctx->flags & (1 << 5))
-		return (get_wchar_ptr(ctx, va));
+		__get_wchar_ptr(ctx, va);
 	else
-		return (get_char_ptr(ctx, va));
+		__get_char_ptr(ctx, va);
 }

@@ -6,7 +6,7 @@
 #    By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/07/20 23:33:41 by jodufour          #+#    #+#              #
-#    Updated: 2022/05/01 11:03:31 by jodufour         ###   ########.fr        #
+#    Updated: 2022/05/02 17:05:50 by jodufour         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -149,7 +149,7 @@ SRC			=	\
 					ft_printf.c					\
 					manage_cvrt.c				\
 					manage_text.c				\
-					padding.c					\
+					padding_fd.c					\
 					parse_flags.c				\
 					parse_fwidth.c				\
 					parse_lmod.c				\
@@ -159,7 +159,9 @@ SRC			=	\
 					ft_putbyte_fd.c				\
 					ft_putbytes_fd.c			\
 					ft_putchar_fd.c				\
+					ft_putdouble_fd.c			\
 					ft_putendl_fd.c				\
+					ft_putfloat_fd.c			\
 					ft_putstr_fd.c				\
 					ft_putwchar_fd.c			\
 				}								\

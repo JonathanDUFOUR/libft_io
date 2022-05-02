@@ -6,7 +6,7 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/10 15:15:00 by jodufour          #+#    #+#             */
-/*   Updated: 2022/04/27 09:06:34 by jodufour         ###   ########.fr       */
+/*   Updated: 2022/05/02 15:03:11 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ typedef struct s_ctx	t_ctx;
 
 struct s_ctx
 {
+	int			fd;
 	int			len;
 	uint16_t	flags;
 	int			fwidth;

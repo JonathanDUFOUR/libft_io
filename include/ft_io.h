@@ -6,7 +6,7 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/20 19:02:43 by jodufour          #+#    #+#             */
-/*   Updated: 2022/05/01 10:58:39 by jodufour         ###   ########.fr       */
+/*   Updated: 2022/05/02 17:01:08 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,6 @@
 # include "get_next_line.h"
 # include "t_int.h"
 
-# ifndef BUFF_SIZE
-#  define BUFF_SIZE 4096
-# endif
-
 int			ft_atoi_base(char const *str, char const *base)
 			__attribute__((nonnull));
 int			ft_atoi(char const *str)
@@ -36,8 +32,10 @@ int			ft_putbyte_fd(uint8_t const byte, int const fd);
 int			ft_putbytes_fd(void const *addr, size_t const size, int const fd)
 			__attribute__((nonnull (1)));
 int			ft_putchar_fd(char const c, int const fd);
+int			ft_putdouble_fd(double const nb, t_uint const prec, int const fd);
 int			ft_putendl_fd(char const *str, int const fd)
 			__attribute__((nonnull (1)));
+int			ft_putfloat_fd(float const nb, t_uint const prec, int const fd);
 int			ft_puthhint_base_fd(
 				t_hhint const nb, char const *base, int const fd)
 			__attribute__((nonnull (2)));

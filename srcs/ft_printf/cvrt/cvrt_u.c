@@ -6,7 +6,7 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/09 04:39:05 by jodufour          #+#    #+#             */
-/*   Updated: 2022/04/27 09:09:07 by jodufour         ###   ########.fr       */
+/*   Updated: 2022/05/02 16:44:59 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "internal.h"
 #include "e_ret.h"
 
-static t_lluint	get_right_type(t_ctx *const ctx, va_list va)
+inline static t_lluint	__get_right_type(t_ctx *const ctx, va_list va)
 {
 	if (ctx->flags & (1 << 5))
 		return ((t_lluint)va_arg(va, t_luint));
@@ -28,7 +28,7 @@ static t_lluint	get_right_type(t_ctx *const ctx, va_list va)
 		return ((t_lluint)va_arg(va, t_uint));
 }
 
-static int	padded_putlluint(
+inline static void	__padded_putlluint_fd(
 	t_lluint const nb,
 	int const len,
 	t_ctx *const ctx)
@@ -36,35 +36,31 @@ static int	padded_putlluint(
 	int	padlen;
 
 	padlen = ctx->fwidth - ctx->prec;
-	if (!(ctx->flags & (1 << 0)) && !(ctx->flags & (1 << 1))
-		&& padding(' ', padlen))
-		return (MALLOC_ERR);
-	if (ctx->flags & (1 << 1) && padding('0', padlen))
-		return (MALLOC_ERR);
+	if (!(ctx->flags & (1 << 0)) && !(ctx->flags & (1 << 1)))
+		padding_fd(' ', padlen, ctx->fd);
+	if (ctx->flags & (1 << 1))
+		padding_fd('0', padlen, ctx->fd);
 	padlen = ctx->prec - len;
-	if (padlen && padding('0', padlen))
-		return (MALLOC_ERR);
-	ft_putlluint_fd(nb, 1);
+	if (padlen)
+		padding_fd('0', padlen, ctx->fd);
+	ft_putlluint_fd(nb, ctx->fd);
 	if (ctx->flags & (1 << 0))
 	{
 		padlen = ctx->fwidth - ctx->prec;
-		if (padding(' ', padlen))
-			return (MALLOC_ERR);
+		padding_fd(' ', padlen, ctx->fd);
 	}
-	return (SUCCESS);
 }
 
-int	cvrt_u(t_ctx *const ctx, va_list va)
+void	cvrt_u(t_ctx *const ctx, va_list va)
 {
-	t_lluint const	nb = get_right_type(ctx, va);
+	t_lluint const	nb = __get_right_type(ctx, va);
 	int				len;
 
 	if (!ctx->prec && !nb)
 	{
-		if (padding(' ', ctx->fwidth))
-			return (MALLOC_ERR);
+		padding_fd(' ', ctx->fwidth, ctx->fd);
 		ctx->len += ctx->fwidth;
-		return (SUCCESS);
+		return ;
 	}
 	len = (int)ft_lluintlen(nb);
 	if (ctx->prec < len)
@@ -73,7 +69,7 @@ int	cvrt_u(t_ctx *const ctx, va_list va)
 		ctx->fwidth = ctx->prec;
 	ctx->len += ctx->fwidth;
 	if (ctx->fwidth > len)
-		return (padded_putlluint(nb, len, ctx));
-	ft_putlluint_fd(nb, 1);
-	return (SUCCESS);
+		__padded_putlluint_fd(nb, len, ctx);
+	else
+		ft_putlluint_fd(nb, ctx->fd);
 }

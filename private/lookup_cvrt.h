@@ -6,7 +6,7 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/18 04:09:49 by jodufour          #+#    #+#             */
-/*   Updated: 2022/04/27 09:11:46 by jodufour         ###   ########.fr       */
+/*   Updated: 2022/05/02 17:13:10 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,37 +17,37 @@
 # include "t_ctx.h"
 
 typedef struct s_cvrt	t_cvrt;
+typedef void			(*t_fct)(t_ctx *const ctx, va_list va);
 
 struct s_cvrt
 {
-	char	c;
-	bool	need_arg;
-	int		(*fct)(t_ctx *const ctx, va_list va);
+	char const	c;
+	t_fct const	fct;
 };
 
-int	cvrt_c(t_ctx *const ctx, va_list va);
-int	cvrt_s(t_ctx *const ctx, va_list va);
-int	cvrt_p(t_ctx *const ctx, va_list va);
-int	cvrt_d(t_ctx *const ctx, va_list va);
-int	cvrt_u(t_ctx *const ctx, va_list va);
-int	cvrt_x_lower(t_ctx *const ctx, va_list va);
-int	cvrt_x_upper(t_ctx *const ctx, va_list va);
-int	cvrt_o(t_ctx *const ctx, va_list va);
-int	cvrt_b(t_ctx *const ctx, va_list va);
-int	cvrt_prct(t_ctx *const ctx, va_list va __attribute__((unused)));
+void	cvrt_c(t_ctx *const ctx, va_list va);
+void	cvrt_s(t_ctx *const ctx, va_list va);
+void	cvrt_p(t_ctx *const ctx, va_list va);
+void	cvrt_d(t_ctx *const ctx, va_list va);
+void	cvrt_u(t_ctx *const ctx, va_list va);
+void	cvrt_x_lower(t_ctx *const ctx, va_list va);
+void	cvrt_x_upper(t_ctx *const ctx, va_list va);
+void	cvrt_o(t_ctx *const ctx, va_list va);
+void	cvrt_b(t_ctx *const ctx, va_list va);
+void	cvrt_prct(t_ctx *const ctx, va_list va __attribute__((unused)));
 
 static t_cvrt const		g_cvrt[] = {
-{'c', true, cvrt_c},
-{'s', true, cvrt_s},
-{'p', true, cvrt_p},
-{'d', true, cvrt_d},
-{'i', true, cvrt_d},
-{'u', true, cvrt_u},
-{'x', true, cvrt_x_lower},
-{'X', true, cvrt_x_upper},
-{'o', true, cvrt_o},
-{'b', true, cvrt_b},
-{'%', false, cvrt_prct},
+{'c', cvrt_c},
+{'s', cvrt_s},
+{'p', cvrt_p},
+{'d', cvrt_d},
+{'i', cvrt_d},
+{'u', cvrt_u},
+{'x', cvrt_x_lower},
+{'X', cvrt_x_upper},
+{'o', cvrt_o},
+{'b', cvrt_b},
+{'%', cvrt_prct},
 {0}
 };
 

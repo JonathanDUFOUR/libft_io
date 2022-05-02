@@ -6,13 +6,14 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/20 23:55:24 by jodufour          #+#    #+#             */
-/*   Updated: 2021/11/15 01:28:16 by jodufour         ###   ########.fr       */
+/*   Updated: 2022/05/02 17:18:04 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include <unistd.h>
 #include "get_next_line.h"
+#include "buffer.h"
 
 int	indexof(char const *str, char const c)
 {
@@ -47,13 +48,13 @@ char	*gnl_concat(char const *s0, char const *s1, int const n)
 
 static int	gnl_read(int const fd, char **rest, char **tmp, int *len)
 {
-	char	buff[GNL_BUFF_SIZE + 1];
+	char	buff[BUFF_SIZE + 1];
 	int		rd;
 
 	rd = 0;
 	while (*len == indexof(*rest, 0))
 	{
-		rd = read(fd, buff, GNL_BUFF_SIZE);
+		rd = read(fd, buff, BUFF_SIZE);
 		if (rd < 0)
 			return (-1);
 		if (rd == 0)

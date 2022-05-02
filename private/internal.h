@@ -6,7 +6,7 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/10 15:33:24 by jodufour          #+#    #+#             */
-/*   Updated: 2022/04/27 09:06:22 by jodufour         ###   ########.fr       */
+/*   Updated: 2022/05/02 17:07:03 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ int		int_strlen(char const *str);
 int		int_wclen(wchar_t const wc);
 int		int_wstrlen(wchar_t const *str);
 int		int_wstrsize(wchar_t const *str);
-int		padding(int const c, int padlen);
 int		putnil(t_ctx *const ctx);
 int		putnull(t_ctx *const ctx);
 
@@ -38,5 +37,7 @@ char	*parse_lmod(char const *format, t_ctx *const ctx);
 char	*parse_prec(char const *format, t_ctx *const ctx, va_list va);
 char	*manage_spec(char const *format, t_ctx *const ctx, va_list va);
 char	*manage_text(char const *format, t_ctx *const ctx);
+
+void	padding_fd(int const c, int padlen, int const fd);
 
 #endif

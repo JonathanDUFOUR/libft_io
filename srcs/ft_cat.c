@@ -6,12 +6,13 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/21 06:21:42 by jdufour           #+#    #+#             */
-/*   Updated: 2021/12/17 19:03:59 by jodufour         ###   ########.fr       */
+/*   Updated: 2022/05/02 17:07:52 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <fcntl.h>
 #include "ft_io.h"
+#include "buffer.h"
 
 /*
 	Print the contents of files described by the given strings `files`

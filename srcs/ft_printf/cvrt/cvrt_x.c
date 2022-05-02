@@ -16,7 +16,7 @@
 #include "e_ret.h"
 #include "e_style.h"
 
-static t_lluint	get_right_type(t_ctx *const ctx, va_list va)
+inline static t_lluint	__get_right_type(t_ctx *const ctx, va_list va)
 {
 	if (ctx->flags & (1 << 5))
 		return ((t_lluint)va_arg(va, t_luint));
@@ -30,15 +30,18 @@ static t_lluint	get_right_type(t_ctx *const ctx, va_list va)
 		return ((t_lluint)va_arg(va, t_uint));
 }
 
-static void	do_right_put(t_lluint const nb, int const style)
+inline static void	__do_right_put_fd(
+	t_lluint const nb,
+	int const style,
+	int const fd)
 {
 	if (style == LOWER)
-		ft_putlluint_base_fd(nb, "0123456789abcdef", 1);
+		ft_putlluint_base_fd(nb, "0123456789abcdef", fd);
 	else if (style == UPPER)
-		ft_putlluint_base_fd(nb, "0123456789ABCDEF", 1);
+		ft_putlluint_base_fd(nb, "0123456789ABCDEF", fd);
 }
 
-static int	padded_putlluint_hexa(
+inline static void	__padded_putlluint_hexa_fd(
 	t_lluint const nb,
 	int const len,
 	t_ctx *const ctx,
@@ -47,39 +50,35 @@ static int	padded_putlluint_hexa(
 	int	padlen;
 
 	padlen = ctx->fwidth - ctx->prec - !!(ctx->flags & (1 << 4)) * 2;
-	if (!(ctx->flags & (1 << 0)) && !(ctx->flags & (1 << 1))
-		&& padding(' ', padlen))
-		return (MALLOC_ERR);
+	if (!(ctx->flags & (1 << 0)) && !(ctx->flags & (1 << 1)))
+		padding_fd(' ', padlen, ctx->fd);
 	if (ctx->flags & (1 << 4) && style == LOWER)
-		write(1, "0x", 2);
+		write(ctx->fd, "0x", 2);
 	if (ctx->flags & (1 << 4) && style == UPPER)
-		write(1, "0X", 2);
-	if (ctx->flags & (1 << 1) && padding('0', padlen))
-		return (MALLOC_ERR);
+		write(ctx->fd, "0X", 2);
+	if (ctx->flags & (1 << 1))
+		padding_fd('0', padlen, ctx->fd);
 	padlen = ctx->prec - len;
-	if (padlen && padding('0', padlen))
-		return (MALLOC_ERR);
-	do_right_put(nb, style);
+	if (padlen)
+		padding_fd('0', padlen, ctx->fd);
+	__do_right_put_fd(nb, style, ctx->fd);
 	if (ctx->flags & (1 << 0))
 	{
 		padlen = ctx->fwidth - ctx->prec - !!(ctx->flags & (1 << 4)) * 2;
-		if (padding(' ', padlen))
-			return (MALLOC_ERR);
+		padding_fd(' ', padlen, ctx->fd);
 	}
-	return (SUCCESS);
 }
 
-int	cvrt_x_lower(t_ctx *const ctx, va_list va)
+void	cvrt_x_lower(t_ctx *const ctx, va_list va)
 {
-	t_lluint const	nb = get_right_type(ctx, va);
+	t_lluint const	nb = __get_right_type(ctx, va);
 	int				len;
 
 	if (!ctx->prec && !nb)
 	{
-		if (padding(' ', ctx->fwidth))
-			return (MALLOC_ERR);
+		padding_fd(' ', ctx->fwidth, ctx->fd);
 		ctx->len += ctx->fwidth;
-		return (SUCCESS);
+		return ;
 	}
 	if (!nb)
 		ctx->flags &= ~(1 << 4);
@@ -90,33 +89,30 @@ int	cvrt_x_lower(t_ctx *const ctx, va_list va)
 		ctx->fwidth = ctx->prec + !!(ctx->flags & (1 << 4)) * 2;
 	ctx->len += ctx->fwidth;
 	if (ctx->fwidth > len)
-		return (padded_putlluint_hexa(nb, len, ctx, LOWER));
-	ft_putlluint_base_fd(nb, "0123456789abcdef", 1);
-	return (SUCCESS);
+		return (__padded_putlluint_hexa_fd(nb, len, ctx, LOWER));
+	ft_putlluint_base_fd(nb, "0123456789abcdef", ctx->fd);
 }
 
-int	cvrt_x_upper(t_ctx *const ctx, va_list va)
+void	cvrt_x_upper(t_ctx *const ctx, va_list va)
 {
-	t_lluint const	nb = get_right_type(ctx, va);
+	t_lluint const	nb = __get_right_type(ctx, va);
 	int				len;
 
 	if (!ctx->prec && !nb)
 	{
-		if (padding(' ', ctx->fwidth))
-			return (MALLOC_ERR);
+		padding_fd(' ', ctx->fwidth, ctx->fd);
 		ctx->len += ctx->fwidth;
-		return (SUCCESS);
+		return ;
 	}
 	if (!nb)
 		ctx->flags &= ~(1 << 4);
 	len = (int)ft_lluintlen_base(nb, 16);
 	if (ctx->prec < len)
 		ctx->prec = len;
-	if (ctx->fwidth < (ctx->prec + 2 * !!(ctx->flags & (1 << 4))))
-		ctx->fwidth = ctx->prec + 2 * !!(ctx->flags & (1 << 4));
+	if (ctx->fwidth < (ctx->prec + !!(ctx->flags & (1 << 4)) * 2))
+		ctx->fwidth = ctx->prec + !!(ctx->flags & (1 << 4)) * 2;
 	ctx->len += ctx->fwidth;
 	if (ctx->fwidth > len)
-		return (padded_putlluint_hexa(nb, len, ctx, UPPER));
-	ft_putlluint_base_fd(nb, "0123456789ABCDEF", 1);
-	return (SUCCESS);
+		return (__padded_putlluint_hexa_fd(nb, len, ctx, UPPER));
+	ft_putlluint_base_fd(nb, "0123456789ABCDEF", ctx->fd);
 }

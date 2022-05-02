@@ -6,7 +6,7 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/05 15:43:20 by jodufour          #+#    #+#             */
-/*   Updated: 2022/04/27 09:09:25 by jodufour         ###   ########.fr       */
+/*   Updated: 2022/05/02 16:59:56 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 #include "t_ctx.h"
 #include "e_ret.h"
 
-int	padded_putnstr(char const *str, t_ctx *const ctx);
+void	padded_putnstr_fd(char const *str, t_ctx *const ctx);
 
-int	putnull(t_ctx *const ctx)
+void	putnull(t_ctx *const ctx)
 {
 	int	len;
 
@@ -27,7 +27,6 @@ int	putnull(t_ctx *const ctx)
 		ctx->fwidth = ctx->prec;
 	ctx->len += ctx->fwidth;
 	if (ctx->fwidth > ctx->prec)
-		return (padded_putnstr("(null)", ctx));
-	write(1, "(null)", (size_t)ctx->prec);
-	return (SUCCESS);
+		return (padded_putnstr_fd("(null)", ctx));
+	write(ctx->fd, "(null)", (size_t)ctx->prec);
 }

@@ -6,7 +6,7 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/09 04:29:36 by jodufour          #+#    #+#             */
-/*   Updated: 2022/04/27 09:08:34 by jodufour         ###   ########.fr       */
+/*   Updated: 2022/05/02 17:01:54 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,33 +16,33 @@
 #include "internal.h"
 #include "e_ret.h"
 
-static int	padded_putchar(
+inline static void	__padded_putchar_fd(
 	char const c,
 	uint16_t const flags,
-	int const padlen)
+	int const padlen,
+	int const fd)
 {
-	if (!(flags & (1 << 0)) && padding(' ', padlen))
-		return (MALLOC_ERR);
-	ft_putchar_fd(c, 1);
-	if (flags & (1 << 0) && padding(' ', padlen))
-		return (MALLOC_ERR);
-	return (SUCCESS);
+	if (!(flags & (1 << 0)))
+		padding_fd(' ', padlen, fd);
+	ft_putchar_fd(c, fd);
+	if (flags & (1 << 0))
+		padding_fd(' ', padlen, fd);
 }
 
-static int	padded_putwchar(
+inline static void	__padded_putwchar_fd(
 	wchar_t const wc,
 	uint16_t const flags,
-	int const padlen)
+	int const padlen,
+	int const fd)
 {
-	if (!(flags & (1 << 0)) && padding(' ', padlen))
-		return (MALLOC_ERR);
-	ft_putwchar_fd(wc, 1);
-	if (flags & (1 << 0) && padding(' ', padlen))
-		return (MALLOC_ERR);
-	return (SUCCESS);
+	if (!(flags & (1 << 0)))
+		padding_fd(' ', padlen, fd);
+	ft_putwchar_fd(wc, fd);
+	if (flags & (1 << 0))
+		padding_fd(' ', padlen, fd);
 }
 
-static int	get_char(t_ctx *const ctx, va_list va)
+inline static void	__get_char(t_ctx *const ctx, va_list va)
 {
 	char const	c = (char)va_arg(va, int);
 
@@ -50,12 +50,12 @@ static int	get_char(t_ctx *const ctx, va_list va)
 		ctx->fwidth = 1;
 	ctx->len += ctx->fwidth;
 	if (ctx->fwidth > 1)
-		return (padded_putchar(c, ctx->flags, ctx->fwidth - 1));
-	ft_putchar_fd(c, 1);
-	return (SUCCESS);
+		__padded_putchar_fd(c, ctx->flags, ctx->fwidth - 1, ctx->fd);
+	else
+		ft_putchar_fd(c, 1);
 }
 
-static int	get_wchar(t_ctx *ctx, va_list va)
+inline static void	__get_wchar(t_ctx *ctx, va_list va)
 {
 	wchar_t const	wc = va_arg(va, wchar_t);
 	int				len;
@@ -65,15 +65,15 @@ static int	get_wchar(t_ctx *ctx, va_list va)
 		ctx->fwidth = len;
 	ctx->len += ctx->fwidth;
 	if (ctx->fwidth > 1)
-		return (padded_putwchar(wc, ctx->flags, ctx->fwidth - len));
-	ft_putwchar_fd(wc, 1);
-	return (SUCCESS);
+		__padded_putwchar_fd(wc, ctx->flags, ctx->fwidth - len, ctx->fd);
+	else
+		ft_putwchar_fd(wc, 1);
 }
 
-int	cvrt_c(t_ctx *ctx, va_list va)
+void	cvrt_c(t_ctx *ctx, va_list va)
 {
 	if (ctx->flags & (1 << 5))
-		return (get_wchar(ctx, va));
+		__get_wchar(ctx, va);
 	else
-		return (get_char(ctx, va));
+		__get_char(ctx, va);
 }

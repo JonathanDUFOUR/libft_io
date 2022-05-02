@@ -6,7 +6,7 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/09 06:37:06 by jodufour          #+#    #+#             */
-/*   Updated: 2022/04/27 09:05:56 by jodufour         ###   ########.fr       */
+/*   Updated: 2022/05/02 15:08:08 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ char	*manage_text(char const *format, t_ctx *const ctx)
 		ctx->fwidth = (int)(next - format);
 	else
 		ctx->fwidth = int_strlen(format);
-	write(1, format, (size_t)ctx->fwidth);
+	write(ctx->fd, format, (size_t)ctx->fwidth);
 	ctx->len += ctx->fwidth;
 	format += ctx->fwidth;
 	return ((char *)format);

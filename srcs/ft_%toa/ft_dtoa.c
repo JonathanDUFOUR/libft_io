@@ -6,7 +6,7 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/01 10:59:37 by jodufour          #+#    #+#             */
-/*   Updated: 2022/05/01 11:07:40 by jodufour         ###   ########.fr       */
+/*   Updated: 2022/05/02 14:18:29 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,10 +81,10 @@ char	*ft_dtoa(double const nb, t_uint const prec)
 
 	if (isnan(nb))
 		return (__nanftoa());
-	else if (isinf(nb))
+	if (isinf(nb))
 		return (__infftoa(nb < 0));
 	upart = (t_lluint)fabs(nb);
-	fpart = (fabs(nb) - upart) * pow(10, prec);
+	fpart = (t_lluint)((fabs(nb) - upart) * pow(10, prec));
 	upart_len = ft_lluintlen(upart);
 	output = malloc(((nb < 0) + upart_len + !!prec + prec + 1) * sizeof(char));
 	if (!output)

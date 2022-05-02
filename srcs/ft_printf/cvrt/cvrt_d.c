@@ -6,7 +6,7 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/18 06:19:49 by jodufour          #+#    #+#             */
-/*   Updated: 2022/04/27 09:08:39 by jodufour         ###   ########.fr       */
+/*   Updated: 2022/05/02 16:04:29 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include "internal.h"
 #include "e_ret.h"
 
-static t_llint	get_right_type(t_ctx *const ctx, va_list va)
+inline static t_llint	__get_right_type(t_ctx *const ctx, va_list va)
 {
 	if (ctx->flags & (1 << 5))
 		return ((t_llint)va_arg(va, t_lint));
@@ -29,7 +29,7 @@ static t_llint	get_right_type(t_ctx *const ctx, va_list va)
 		return ((t_llint)va_arg(va, int));
 }
 
-static void	flag_exception(t_ctx *const ctx)
+inline static void	__flag_exception(t_ctx *const ctx)
 {
 	if (ctx->flags & (1 << 2))
 		write(1, "+", 1);
@@ -40,58 +40,57 @@ static void	flag_exception(t_ctx *const ctx)
 	++ctx->len;
 }
 
-static int	fwidth_padlen(t_llint const nb, t_ctx *const ctx)
+inline static int	__fwidth_padlen(t_llint const nb, t_ctx *const ctx)
 {
 	return (ctx->fwidth
 		- ctx->prec
 		- !!((nb < 0) || (ctx->flags & (1 << 2)) || (ctx->flags & (1 << 3))));
 }
 
-static int	padded_putllint(
+inline static void	__padded_putllint_fd(
 	t_llint const nb,
 	int const len,
 	t_ctx *const ctx)
 {
 	int	padlen;
 
-	padlen = fwidth_padlen(nb, ctx);
-	if (!(ctx->flags & (1 << 0)) && !(ctx->flags & (1 << 1))
-		&& padding(' ', padlen))
-		return (MALLOC_ERR);
+	padlen = __fwidth_padlen(nb, ctx);
+	if (!(ctx->flags & (1 << 0)) && !(ctx->flags & (1 << 1)))
+		padding_fd(' ', padlen, ctx->fd);
 	if (nb < 0)
-		write(1, "-", 1);
+		write(ctx->fd, "-", 1);
 	else if (ctx->flags & (1 << 2))
-		write(1, "+", 1);
+		write(ctx->fd, "+", 1);
 	else if (ctx->flags & (1 << 3))
-		write(1, " ", 1);
-	if (ctx->flags & (1 << 1) && padding('0', padlen))
-		return (MALLOC_ERR);
+		write(ctx->fd, " ", 1);
+	if (ctx->flags & (1 << 1))
+		padding_fd('0', padlen, ctx->fd);
 	padlen = ctx->prec - (len - (nb < 0));
-	if (padlen && padding('0', padlen))
-		return (MALLOC_ERR);
-	ft_putlluint_fd((nb < 0) * (t_lluint)(-nb) + (nb >= 0) * (t_lluint)nb, 1);
+	if (padlen)
+		padding_fd('0', padlen, ctx->fd);
+	if (nb < 0)
+		ft_putlluint_fd((t_lluint)(-nb), ctx->fd);
+	else
+		ft_putlluint_fd((t_lluint)nb, ctx->fd);
 	if (ctx->flags & (1 << 0))
 	{
-		padlen = fwidth_padlen(nb, ctx);
-		if (padding(' ', padlen))
-			return (MALLOC_ERR);
+		padlen = __fwidth_padlen(nb, ctx);
+		padding_fd(' ', padlen, ctx->fd);
 	}
-	return (SUCCESS);
 }
 
-int	cvrt_d(t_ctx *const ctx, va_list va)
+void	cvrt_d(t_ctx *const ctx, va_list va)
 {
-	t_llint const	nb = get_right_type(ctx, va);
+	t_llint const	nb = __get_right_type(ctx, va);
 	int				len;
 
 	if (!ctx->prec && !nb)
 	{
 		if (ctx->flags & (1 << 2) || ctx->flags & (1 << 3))
-			flag_exception(ctx);
-		if (padding(' ', ctx->fwidth))
-			return (MALLOC_ERR);
+			__flag_exception(ctx);
+		padding_fd(' ', ctx->fwidth, ctx->fd);
 		ctx->len += ctx->fwidth;
-		return (SUCCESS);
+		return ;
 	}
 	len = (int)ft_llintlen(nb);
 	if (ctx->prec < (len - (nb < 0)))
@@ -102,7 +101,7 @@ int	cvrt_d(t_ctx *const ctx, va_list va)
 				|| (ctx->flags & (1 << 3)));
 	ctx->len += ctx->fwidth;
 	if (ctx->fwidth > len)
-		return (padded_putllint(nb, len, ctx));
-	ft_putllint_fd(nb, 1);
-	return (SUCCESS);
+		__padded_putllint_fd(nb, len, ctx);
+	else
+		ft_putllint_fd(nb, ctx->fd);
 }
