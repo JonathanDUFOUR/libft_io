@@ -12,6 +12,7 @@
 
 #include "ft_io.h"
 #include "t_ctx.h"
+#include <stdarg.h>
 
 char	*parse_prec(char const *format, t_ctx *ctx, va_list va)
 {

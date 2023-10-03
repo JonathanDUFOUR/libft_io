@@ -6,12 +6,13 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/12 23:43:37 by jodufour          #+#    #+#             */
-/*   Updated: 2022/04/27 09:05:56 by jodufour         ###   ########.fr       */
+/*   Updated: 2023/10/03 04:20:11 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_io.h"
 #include "t_ctx.h"
+#include <stdarg.h>
 
 char	*parse_fwidth(char const *format, t_ctx *const ctx, va_list va)
 {

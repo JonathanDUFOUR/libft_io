@@ -6,7 +6,7 @@
 #    By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/07/20 23:33:41 by jodufour          #+#    #+#              #
-#    Updated: 2022/10/29 07:14:22 by jodufour         ###   ########.fr        #
+#    Updated: 2023/10/03 04:25:06 by jodufour         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -239,7 +239,7 @@ all: ${NAME_A} ${NAME_SO} ${TEST}
 
 ${OBJ_DIR}/%.o: ${SRC_DIR}/%.c
 	@${MKDIR} ${@D}
-	${CC} $< ${CFLAGS} ${OUTPUT_OPTION}
+	${CC} ${CFLAGS} $< ${OUTPUT_OPTION}
 
 clean:
 	${RM} ${OBJ_DIR}
